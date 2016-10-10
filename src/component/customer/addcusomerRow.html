@@ -1,0 +1,13 @@
+<div class="m-row">
+    <div class="m-name">
+        @@name
+    </div>
+    <div class="m-info m-input">
+        @@if (style == "textarea"){
+        <textarea class="textarea" placeholder="请输入@@name"></textarea>
+        }
+        @@if (style == "input"){
+        <input type="text" class="input" placeholder="请输入@@name"/>
+        }
+    </div>
+</div>

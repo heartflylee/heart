@@ -1,0 +1,205 @@
+<div class="index-select-box">
+    <div class="index-select">
+        <div class="select-show">
+            <label id="select-time">过去7日</label>
+            <i class="t-arrow icon"></i>
+        </div>
+        <div class="select-warp ">
+            <div class="date-select-box">
+                <ul>
+                    <li class="date-select selected">
+                        过去7日
+                    </li>
+                    <li class="date-select">
+                        过去30日
+                    </li>
+                    <li class="date-select">
+                        今日
+                    </li>
+                    <li class="date-select">
+                        昨日
+                    </li>
+                    <li class="date-select">
+                        全部
+                    </li>
+                </ul>
+            </div>
+            <div class="date-box">
+                <div class="datetime" id="datetime"></div>
+                <input type="hidden" id="startTime"/>
+                <input type="hidden" id="endTime"/>
+                <div class="date-btn-box">
+                    <a href="javascript:dateShow();" class="btn btn-primary date-btn">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="index-select ">
+        <div class="select-show select-head">
+            <div class="index-head head-manage">
+                <div class="index-head-photo" style="background-image: url(img/head-list.png);"></div>
+            </div>
+            <label>艾云鹤</label>
+            <i class="t-arrow icon"></i>
+        </div>
+        <div class="select-warp ">
+            <div class="select-head-box">
+                <div class="search-head">
+                    <input type="text" class="search-c" placeholder="请输入员工" id="searchCustomer"/>
+                    <i class="search icon"></i>
+                </div>
+                <div class="head-list">
+                    <div class="head-li">
+                        <a href="javascript:void(0);">
+                            <div class="index-head">
+                                <div class="index-head-photo" style="background-image: url(img/head-all.png);"></div>
+                            </div>
+                            <label>所有员工</label>
+                        </a>
+                    </div>
+                    <div class="head-li">
+                        <a href="javascript:void(0);">
+                            <div class="index-head head-manage">
+                                <div class="index-head-photo" style="background-image: url(img/head-list.png);"></div>
+                            </div>
+                            <label>艾云鹤1</label>
+                            <span>管理员</span>
+                        </a>
+                    </div>
+                    <div class="head-li">
+                        <a href="javascript:void(0);">
+                            <div class="index-head ">
+                                <div class="index-head-photo" style="background-image: url(img/head-list.png);"></div>
+                            </div>
+                            <label>艾云鹤2</label>
+                        </a>
+                    </div>
+                    <div class="head-li">
+                        <a href="javascript:void(0);">
+                            <div class="index-head ">
+                                <div class="index-head-photo" style="background-image: url(img/head-list.png);"></div>
+                            </div>
+                            <label>艾云鹤3</label>
+                        </a>
+                    </div>
+                    <div class="head-li">
+                        <a href="javascript:void(0);">
+                            <div class="index-head ">
+                                <div class="index-head-photo" style="background-image: url(img/head-list.png);"></div>
+                            </div>
+                            <label>艾云鹤4</label>
+                        </a>
+                    </div>
+                    <div class="head-li">
+                        <a href="javascript:void(0);">
+                            <div class="index-head ">
+                                <div class="index-head-photo" style="background-image: url(img/head-list.png);"></div>
+                            </div>
+                            <label>艾云鹤5</label>
+                        </a>
+                    </div>
+                    <div class="head-li">
+                        <a href="javascript:void(0);">
+                            <div class="index-head ">
+                                <div class="index-head-photo" style="background-image: url(img/head-list.png);"></div>
+                            </div>
+                            <label>艾云鹤6</label>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="charts-warp">
+    <div class="charts-right">
+        <div class="charts-li">
+            <div class="charts-t">接通意向率</div>
+            <div class="charts" id="charts-intention"></div>
+        </div>
+        <div class="charts-li">
+            <div class="charts-t">电话结果标签</div>
+            <div class="charts" id="charts-result"></div>
+        </div>
+        <div class="charts-li">
+            <div class="charts-t">销售进度标签</div>
+            <div class="charts" id="charts-progress"></div>
+        </div>
+    </div>
+    <div class="charts-box">
+        <div class="charts-main">
+            <div class="charts-t-box">
+                <div class="right" id="count-list">
+                    <div class="count-list active">
+                        <div class="count-li">
+                            <i class="icon-count-num icon"></i>
+                            <label class="count-name">客户总量</label>
+                            <label class="count-num">158572</label>
+                        </div>
+                        <div class="count-li">
+                            <i class="icon-count-up icon"></i>
+                            <label class="count-name">客户增长总量</label>
+                            <label class="count-num">+15</label>
+                        </div>
+                    </div>
+                    <div class="count-list">
+                        <div class="count-li">
+                            <i class="icon-count-num icon"></i>
+                            <label class="count-name">任务总量</label>
+                            <label class="count-num">158572</label>
+                        </div>
+                        <div class="count-li">
+                            <i class="icon-count-up icon"></i>
+                            <label class="count-name">任务增长总量</label>
+                            <label class="count-num">+15</label>
+                        </div>
+                    </div>
+                    <div class="count-list">
+                        <div class="count-li">
+                            <i class="icon-count-num icon"></i>
+                            <label class="count-name">完成总量</label>
+                            <label class="count-num">158572</label>
+                        </div>
+                        <div class="count-li">
+                            <i class="icon-count-up icon"></i>
+                            <label class="count-name">完成增长总量</label>
+                            <label class="count-num">+15</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="charts-btn-box" id="lineChartBtn">
+                    <a class="charts-btn active" href="javascript:lineBtn(0);">客户增长量</a>
+                    <a class="charts-btn" href="javascript:lineBtn(1);">任务增长量</a>
+                    <a class="charts-btn" href="javascript:lineBtn(2);">任务完成增长量</a>
+                </div>
+            </div>
+            <div class="charts charts-big" id="charts-line"></div>
+        </div>
+        <div class="charts-main">
+            <div class="charts-t-box">
+                <div class="right">
+                    <div class="legend">
+                        <i class="icon-legend legend1"></i>
+                        <label class="legend-text">坐标电话量</label>
+                    </div>
+                    <div class="legend">
+                        <i class="icon-legend legend2"></i>
+                        <label class="legend-text">联系客户数</label>
+                    </div>
+                    <div class="legend">
+                        <i class="icon-legend legend3"></i>
+                        <label class="legend-text">通话时长</label>
+                    </div>
+                </div>
+                <div class="charts-btn-box" id="barChartBtn">
+                    <a class="charts-btn active" data-chart="0" href="javascript:barBtn(0);">坐标电话量</a>
+                    <a class="charts-btn" data-chart="1" href="javascript:barBtn(1);">联系客户数</a>
+                    <a class="charts-btn" data-chart="2" href="javascript:barBtn(2);">通话时长</a>
+                </div>
+            </div>
+            <div class="charts charts-big" id="charts-bar"></div>
+        </div>
+    </div>
+</div>
+

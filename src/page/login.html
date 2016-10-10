@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    @@include("../component/common.html",{"style":"login"})
+</head>
+<body class="login-warp">
+<div class="signIn-warp">
+    <div class="s-logo"></div>
+    <div class="s-main">
+        <div class="login-box">
+            <form onsubmit="return login();">
+                <div class="input-box">
+                    <input type="text" class="input l-phone" placeholder="请输入手机号" id="phone"/></div>
+                <div class="input-box">
+                    <input type="password" class="input l-pwd" placeholder="请输入密码" id="psw"/>
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="btn btn-primary l-submit" value="登 录" onclick="return login();"/>
+                </div>
+            </form>
+        </div>
+        <div class="l-bottom">
+            <div class="right">
+                <a class="a-btn" href="#signUp" data-toggle="modal">注册</a>
+                <a class="a-btn" href="javascript:void(0);">忘记密码</a>
+                <div class="l-download">
+                    <label>下载云客APP</label>
+                    <div class="icon">
+                        <i class="android way-icon"></i>
+                        <div class="code-warp">
+                            <div class="code"></div>
+                        </div>
+                    </div>
+                    <div class="icon">
+                        <i class="ios way-icon"></i>
+                        <div class="code-warp">
+                            <div class="code"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--注册框-->
+@@include('../component/layer/layer-login.html',{"layer":"signUp","layerFrame":"../login/signUp.html"})
+<!--注册填写公司名称并调用企信-->
+@@include('../component/layer/layer-login.html',{"layer":"company","layerFrame":"../login/company.html"})
+<!--调用企信获得的企业信息-->
+@@include('../component/layer/layer.html',{"layer":"business","layerTitle":"工商信息","layerFrame":"../qixin/qixin.html","submit":"false"})
+<!--注册同意协议-->
+@@include('../component/layer/layer.html',{"layer":"statement","layerTitle":"云客法律声明及隐私权保护协议","layerFrame":"../statement/statement.html","submit":"false"})
+<!--<script src="js/all.js"></script>-->
+</body>
+</html>

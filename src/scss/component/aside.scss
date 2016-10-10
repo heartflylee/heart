@@ -1,0 +1,256 @@
+/*侧面菜单*/
+
+.b-aside {
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  width: $aside-w;
+  background: #252834;
+  color: #fff;
+}
+
+.menu-warp {
+  position: absolute;
+  top: $header-h;
+  bottom: $menu-h;
+  left: 0;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.aside-head {
+  height: $header-h;
+}
+
+.a-logo {
+  display: inline-block;
+  width: 120px;
+  height: 23px;
+  margin: ($header-h - 23)/2 0 0 30px;
+  background: url("../../img/h-logo.png");
+}
+
+.menu-btn-box {
+  position: absolute;
+  top: 15px;
+  right: 26px;
+  cursor: pointer;
+  .side-open & {
+    right: 19px;
+  }
+}
+
+.menu-icon {
+  display: inline-block;
+  color: #999;
+  &:after {
+    display: inline-block;
+    content: "\e64b";
+    font-size: 27px;
+    .side-open & {
+      content: "\e63f";
+    }
+  }
+}
+
+.m-nav {
+  position: relative;
+}
+
+.nav-info {
+  font-size: 16px;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+  }
+  &.active,
+  &:hover,
+  .m-nav:hover &, .nav-active & {
+    color: #50d2c2;
+    background: #20242e;
+    &:before {
+      background: #50d2c2;
+      @include backgroundChang(top, #50cdd2, #50d2c2);
+    }
+  }
+}
+
+.m-second a,
+a.nav-info {
+  display: block;
+  position: relative;
+  padding: 15px 20px 15px 93px;
+  line-height: 30px;
+  color: #fff;
+  font-size: 12px;
+  cursor: pointer;
+  label {
+    cursor: pointer;
+  }
+}
+
+.m-icon {
+  position: absolute;
+  left: 36px;
+  top: ($menu-h - 30)/2;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  @include icon;
+}
+
+$menu: 605 607 609 60 b;
+$menuActive: 606 608 60 a 60 c;
+@for $i from 1 through 4 {
+  .icon-m#{$i} {
+    &:after {
+      font-family: "iconfont" !important;
+      font-size: 22px;
+      font-style: normal;
+      content: "\e#{nth($menu,$i)}";
+    }
+
+    //background-image: url("../img/icon-m#{$i}.png");
+    &.active:after {
+      content: "\e#{nth($menuActive,$i)}";
+      //background-image: url("../img/icon-m#{$i}-active.png");
+    }
+    .m-nav:hover &:after,
+    .nav-active &:after,
+    .nav-info:hover &:after {
+      content: "\e#{nth($menuActive,$i)}";
+      //background-image: url("../img/icon-m#{$i}-active.png");
+    }
+  }
+}
+
+.icon-sign {
+  position: absolute;
+  top: ($menu-h - 24)/2;
+  right: 23px;
+  width: 24px;
+  height: 24px;
+  @include icon;
+  background-image: url("../../img/arrow.png");
+  .nav-info.active &,
+  .nav-info:hover & {
+    background-image: url("../../img/arrow-active.png");
+    animation: arrow 0.2s ease-in both;
+  }
+}
+
+@keyframes arrow {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+.m-second-list {
+  display: none;
+  background: #1e222b;
+  .nav-active & {
+    display: block;
+  }
+  .side-open &, .side-open .nav-active & {
+    display: none;
+  }
+}
+
+.m-second {
+  i {
+    display: inline-block;
+    position: absolute;
+    top: ($menu-h - 10)/2;
+    left: 45px;
+    height: 10px;
+    width: 10px;
+    border: 2px solid #fff;
+    border-radius: 5px;
+  }
+  &.active,
+  &:hover {
+    background: #1c1f27;
+    i {
+      background: #fff;
+    }
+  }
+
+}
+
+.side-open {
+  .b-aside {
+    width: $aside-s-w;
+  }
+  .menu-warp {
+    bottom: 0;
+    overflow-y: inherit;
+
+  }
+  .a-logo {
+    display: none;
+  }
+  .menu-btn-all {
+    display: block;
+  }
+  .menu-btn-defalut {
+    display: none;
+  }
+  .nav-info {
+    padding: 0;
+    height: 60px;
+    .icon {
+      left: 15px;
+    }
+    .icon-sign,
+    label {
+      display: none;
+    }
+
+  }
+  .m-nav {
+    .m-second-list {
+      display: none;
+    }
+    &:hover .m-second-list {
+      display: block;
+    }
+  }
+  .m-second-list {
+    position: absolute;
+    top: 0;
+    left: $aside-s-w;
+    width: 172px;
+    background: #1e222b;
+  }
+  .m-second {
+    a {
+      padding-left: 67px;
+    }
+    i {
+      left: 28px;
+    }
+  }
+}
+
+.aside-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: $menu-h;
+  text-align: center;
+  color: #1c1f27;
+  font-size: 18px;
+  .side-open & {
+    display: none;
+  }
+}

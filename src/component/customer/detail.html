@@ -1,0 +1,230 @@
+<div class="modal fade layer-detail-warp" data-backdrop="false" id="detail">
+    <div class="layer-bg" data-dismiss="modal" aria-hidden="true"></div>
+    <div class="modal-dialog">
+        <div class="layer-detail">
+            <div class="detail-h">
+                <div class="detail-title">
+                    <div class="detail-h-r">
+                        <div class="h-r-box">
+                            <div class="h-r-li">
+                                <div class="h-r-btn">
+                                    <i class="h-r-icon icon-edit icon"></i>
+                                    <label class="h-r-main">编辑</label>
+                                </div>
+                            </div>
+                            <div class="h-r-li">
+                                <div class="h-r-btn" data-toggle="modal" data-target="#customer">
+                                    <i class="h-r-icon icon-add icon"></i>
+                                    <label class="h-r-main">添加联系人</label>
+                                </div>
+                            </div>
+                            <div class="h-r-li dropdown">
+                                <div class="h-r-btn " data-toggle="dropdown">
+                                    <i class="h-r-icon icon-menu icon"></i>
+                                </div>
+                                <div class="h-r-drop dropdown-menu">
+                                    <div class="h-d-list">
+                                        <a class="h-d-li" href="javascript:void(0)">
+                                            删除
+                                        </a>
+                                        <a class="h-d-li" href="javascript:void(0)">
+                                            变更负责人
+                                        </a>
+                                        <a class="h-d-li" href="javascript:void(0)">
+                                            锁定
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-h-m">
+                        <div class="h-m-company">
+                            北京联云天下科技有限公司
+                        </div>
+                        <div class="qixin-btn" data-toggle="modal" data-target="#business">
+                            <i class="icon"></i> 工商信息
+                        </div>
+                    </div>
+                </div>
+                <div class="d-message">
+                    @@include("../detail/detail-head-message.html")
+                </div>
+            </div>
+            <div class="detail-main">
+                <div class="detail-left">
+                    <div class="tags">
+                        <div class="tags-li active">
+                            <a href="javascript:void(0)" onclick="tags(this)">相关</a>
+                        </div>
+                        <div class="tags-li">
+                            <a href="javascript:void(0)" onclick="tags(this)">详细信息</a>
+                        </div>
+                    </div>
+                    <div class="tags-main">
+                        <div class="tags-con-li active">
+                            <div class="list-li">
+                                <div class="list-title">
+                                    <div class="title-right">
+                                        <div class="title-btn">
+                                            <i class="icon-t icon-t-arrow icon" onclick="detail(this)"></i>
+                                        </div>
+                                        <div class="title-btn dropdown">
+                                            <i class="icon-t icon-t-set icon" data-toggle="dropdown"></i>
+                                            <div class="h-r-drop dropdown-menu">
+                                                <div class="h-d-list">
+                                                    <a class="h-d-li" href="javascript:void(0)">
+                                                        删除
+                                                    </a>
+                                                    <a class="h-d-li" href="javascript:void(0)">
+                                                        变更跟进人
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title-left">
+                                        <i class="title-icon icon-contact icon"></i> 联系人（2）
+                                    </div>
+                                </div>
+                                <div class="list-main">
+                                    <div class="list-table">
+                                        <ul class="table-row table-head">
+                                            <li class="table-li table-li1">
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox"><i></i></label>
+                                                </div>
+                                            </li>
+                                            <li class="table-li table-li2">
+                                                客户姓名
+                                            </li>
+                                            <li class="table-li table-li3">
+                                                手机号
+                                            </li>
+                                            <li class="table-li table-li4">
+                                                跟进人
+                                            </li>
+                                            <li class="table-li table-li5">
+                                                最后一次沟通结果
+                                            </li>
+                                            <li class="table-li table-li6">
+                                                最后一次通话录音
+                                            </li>
+                                            <li class="table-li table-li7">
+
+                                            </li>
+                                        </ul>
+                                        @@loop("../detail/detail-contact-table.html",[{},{},{},{}])
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-li">
+                                <div class="list-title">
+                                    <div class="title-right">
+                                        <div class="title-btn">
+                                            <i class="icon-t icon-t-arrow icon" onclick="detail(this)"></i>
+                                        </div>
+                                        <div class="title-btn">
+                                            <i class="icon-t icon-t-upload icon"></i>
+                                        </div>
+                                    </div>
+                                    <div class="title-left">
+                                        <i class="title-icon icon-word icon"></i> 文档（2）
+                                    </div>
+                                </div>
+                                <div class="list-main">
+                                    <div class="word-list">
+                                        @@loop("../detail/detail-word.html",[{},{},{},{},{},{},{},{},{}])
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-li">
+                                <div class="list-title">
+                                    <!--<div class="title-right">
+                                        <div class="title-btn">
+                                            <i class="icon-t icon-t-arrow"></i>
+                                        </div>
+                                        <div class="title-btn">
+                                            <i class="icon-t icon-t-upload"></i>
+                                        </div>
+                                    </div>-->
+                                    <div class="title-left">
+                                        <i class="title-icon icon-history icon"></i> 任务历史（2）
+                                    </div>
+                                </div>
+                                <div class="list-main">
+                                    <div class="list-table list-task">
+                                        <ul class="table-row table-head">
+                                            <li class="table-li">
+                                                任务名称
+                                            </li>
+                                            <li class="table-li">
+                                                人均电话量
+                                            </li>
+                                            <li class="table-li">
+                                                任务状态
+                                            </li>
+                                            <li class="table-li">
+                                                任务详情
+                                            </li>
+                                        </ul>
+                                        @@loop("../detail/detail-history.html",[{},{},{},{},{},{}])
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tags-con-li">
+                            <div class="message-box">
+                                <div class="message-t">
+                                    基本信息
+                                </div>
+                                @@include("../detail/detail-message.html")
+                            </div>
+                            <div class="message-box">
+                                <div class="message-t">
+                                    联系信息
+                                </div>
+                                @@include("../detail/detail-contact.html")
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <div class="tags">
+                        <div class="tags-li active">
+                            <a href="javascript:void(0)" onclick="tags(this)">时间轴</a>
+                        </div>
+                        <div class="tags-li">
+                            <a href="javascript:void(0)" onclick="tags(this)">团队成员</a>
+                        </div>
+                    </div>
+                    <div class="tags-main">
+                        <div class="tags-con-li active">
+                            <div class="note-form">
+                                <form onsubmit="return false">
+                                    <textarea class="textarea" placeholder="请输入客户备注 "></textarea>
+                                    <div class="btn-right-box">
+                                        <input type="button" class="btn btn-default" value="取消"/>
+                                        <input type="submit" class="btn btn-primary" value="确定"/>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="time-line">
+                                @@loop("../detail/detail-line.html",[{"time":"2017-02-23 17:44","editor":"刘宇","type":"video","customer":"白又亮"},
+                                {"time":"2017-02-22 17:44","editor":"刘宇","type":"message","customer":"白又亮"},
+                                {"time":"2017-02-21 17:44","editor":"刘宇","type":"create","customer":"白又亮"},
+                                {"time":"2017-02-20 17:44","editor":"刘宇","type":"company","customer":"北京蜜宝世纪科技有限公司"}
+                                ])
+                            </div>
+                        </div>
+                        <div class="tags-con-li">
+                            <div class="member">
+                                @@loop("../detail/detail-member.html",[{},{},{},{}])
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
