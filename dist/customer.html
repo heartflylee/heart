@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>云客后台-客户</title>
+    <!--公共-->
+    <link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/beAlert.css">
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/jqxgrid.css">
+
+
+<script src="js/jquery-1.10.2.min.js"></script>
+<!--<script src="js/jquery.2.1.1.min.js"></script>-->
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.autocomplete.js"></script>
+<script src="js/beAlert.js"></script>
+
+<!--[if lt IE 10]>
+<script type="text/javascript" src="js/html5shiv.js"></script>
+<script type="text/javascript" src="js/respond.min.js"></script>
+<script type="text/javascript" src="js/placeholder.js" ></script>
+<![endif]-->
+
+
+    <!--表格-->
+    <script type="text/javascript" src="js/jqx/jqxcore.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxdata.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxbuttons.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxmenu.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxgrid.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxgrid.sort.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxgrid.selection.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxgrid.columnsresize.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxgrid.edit.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxgrid.pager.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxpanel.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxlistbox.js"></script>
+    <script type="text/javascript" src="js/jqx/jqxdropdownlist.js"></script>
+</head>
+<body>
+<!--左侧菜单-->
+<!-- 左侧菜单 -->
+<aside class="b-aside">
+    <div class="aside-head">
+        <a href="" class="a-logo">
+            <img src="img/h-logo.png" alt="">
+        </a>
+        <div class="menu-btn-box toggle-btn">
+            <i class="icon menu-icon"></i>
+        </div>
+    </div>
+    <div class="menu-warp">
+        <ul class="m-list">
+            <li class="m-nav  menu-list ">
+    <a class='nav-info' href="#">
+        <i class="icon m-icon icon-m1"></i>
+        <label>首页</label>
+        <i class="icon-sign"></i>
+    </a>
+    
+    <ul class="m-second-list child-list">
+        
+        <li class="m-second">
+            <a href="index.html">
+                <i></i>
+                <label>数据统计</label>
+            </a>
+        </li>
+        
+        <li class="m-second">
+            <a href="">
+                <i></i>
+                <label>考勤统计</label>
+            </a>
+        </li>
+        
+    </ul>
+    
+</li>
+<li class="m-nav  menu-list  nav-active">
+    <a class='nav-info' href="#">
+        <i class="icon m-icon icon-m2"></i>
+        <label>客户</label>
+        <i class="icon-sign"></i>
+    </a>
+    
+    <ul class="m-second-list child-list">
+        
+        <li class="m-second">
+            <a href="customer.html">
+                <i></i>
+                <label>客户</label>
+            </a>
+        </li>
+        
+        <li class="m-second">
+            <a href="">
+                <i></i>
+                <label>联系人</label>
+            </a>
+        </li>
+        
+    </ul>
+    
+</li>
+<li class="m-nav  ">
+    <a class='nav-info' href="">
+        <i class="icon m-icon icon-m3"></i>
+        <label>任务</label>
+        <i class="icon-sign"></i>
+    </a>
+    
+</li>
+<li class="m-nav  ">
+    <a class='nav-info' href="">
+        <i class="icon m-icon icon-m4"></i>
+        <label>设置</label>
+        <i class="icon-sign"></i>
+    </a>
+    
+</li>
+
+        </ul>
+    </div>
+    <div class="aside-footer">
+        让销售更简单
+    </div>
+</aside>
+<section class="b-main b-height">
+    <!--header-->
+    <header class="b-header">
+    <div class="h-right">
+        <div class="h-search">
+            <form onsubmit="return Hsearch();">
+                <div class="search-input-box">
+                    <input type="text" class="search-input" placeholder="请输入姓名、公司、手机号等相关信息"/>
+                </div>
+                <div class="search-btn-box">
+                    <input type="submit" value="&#xe616" class="search-btn"/>
+                </div>
+            </form>
+        </div>
+        <div class="h-nav-box">
+            <div class="nav-li">
+                <a class="nav-href" href="#">
+                    <i class="nav-icon nav-service" data-toggle="tooltip" data-placement="bottom" title="在线客服"></i>
+                    <!--<label class="nav-tip">在线客服</label>-->
+                </a>
+            </div>
+            <div class="nav-li">
+                <a class="nav-href info-number" href="javascript:void(0);">
+                    <!--<label class="nav-num">555</label>-->
+                    <i class="nav-icon nav-news" data-toggle="tooltip" data-placement="bottom" title="消息"></i>
+                    <span class="badge bg-danger">555</span>
+                    <!--<label class="nav-tip">消息</label>-->
+                </a>
+
+            </div>
+            <div class="nav-li dropdown">
+                <a class="nav-href" href="javascript:void(0);" data-toggle="dropdown">
+                    <i class="nav-icon nav-help" data-toggle="tooltip" data-placement="bottom" title="帮助"></i>
+                    <!--<label class="nav-tip">帮助</label>-->
+                </a>
+                <div class="dropdown-menu dropdown-box">
+                    <a class="dropli" href="javascript:void(0);">
+                        <i class="drop-icon drop-new"></i>
+                        <label>新手引导</label>
+                    </a>
+                    <a class="dropli" href="javascript:void(0);">
+                        <i class="drop-icon drop-help"></i>
+                        <label>帮助中心</label>
+                    </a>
+                    <a class="dropli" href="javascript:void(0);">
+                        <i class="drop-icon drop-video"></i>
+                        <label>视频引导</label>
+                    </a>
+                    <a class="dropli" href="javascript:void(0);">
+                        <i class="drop-icon drop-return"></i>
+                        <label>意见反馈</label>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="head dropdown">
+            <div class="head-photo" data-toggle="dropdown" class="dropdown-toggle"
+                 style="background-image: url(img/head.png);">
+                <i></i>
+            </div>
+            <div class="dropdown-menu dropdown-box">
+                <a class="dropli" href="javascript:void(0);">
+                    <i class="drop-icon drop-down"></i>
+                    <label>下载应用</label>
+                </a>
+                <a class="dropli" href="login.html">
+                    <i class="drop-icon drop-out"></i>
+                    <label>退出登录</label>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="h-main">
+        <div class="h-company">
+            北京蜜宝世纪科技有限公司
+        </div>
+    </div>
+</header>
+    <div class="b-panel">
+        <div class="small-nav-warp">
+    <div class="nav-box">
+        <div class="index-select">
+            <div class="select-show">
+                <label>全部客户</label>
+                <i class="t-arrow icon"></i>
+            </div>
+            <div class="select-warp">
+                <div class="date-select-box">
+                    <ul>
+                        <li class="date-select selected">
+                            全部客户
+                        </li>
+                        <li class="date-select">
+                            我负责的客户
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="nav-right">
+            <div class="export">
+                <i class="icon-export icon"></i> 导出
+            </div>
+            <div class="drop-button">
+                <label class="drop-name" data-toggle="modal" data-target="#customer">新建客户</label>
+                <i class="icon icon-drop-button"></i>
+            </div>
+        </div>
+    </div>
+    <div class="table-setting">
+        <div class="table-nav-right">
+            <i class="table-nav-close icon">&times;</i>
+        </div>
+        <div class="table-nav-list">
+            <ul>
+                <li class="table-nav">
+                    已选中<label class="count-select">1</label>项
+                </li>
+                <li class="table-nav">
+                    <i class="table-icon icon-change icon"></i>
+                    <div class="table-nav-main">变更负责人</div>
+                </li>
+                <li class="table-nav">
+                    <i class="table-icon icon-delete icon"></i>
+                    <div class="table-nav-main">删除</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="table-warp">
+    <div class="jqxtable" id="jqxtable"></div>
+    <div id="events"></div>
+</div>
+
+
+
+    </div>
+</section>
+
+<!--客户详情-->
+<div class="modal fade layer-detail-warp" data-backdrop="false" id="detail">
+    <div class="layer-bg" data-dismiss="modal" aria-hidden="true"></div>
+    <div class="modal-dialog">
+        <div class="layer-detail">
+            <div class="detail-h">
+                <div class="detail-title">
+                    <div class="detail-h-r">
+                        <div class="h-r-box">
+                            <div class="h-r-li">
+                                <div class="h-r-btn">
+                                    <i class="h-r-icon icon-edit icon"></i>
+                                    <label class="h-r-main">编辑</label>
+                                </div>
+                            </div>
+                            <div class="h-r-li">
+                                <div class="h-r-btn" data-toggle="modal" data-target="#customer">
+                                    <i class="h-r-icon icon-add icon"></i>
+                                    <label class="h-r-main">添加联系人</label>
+                                </div>
+                            </div>
+                            <div class="h-r-li dropdown">
+                                <div class="h-r-btn " data-toggle="dropdown">
+                                    <i class="h-r-icon icon-menu icon"></i>
+                                </div>
+                                <div class="h-r-drop dropdown-menu">
+                                    <div class="h-d-list">
+                                        <a class="h-d-li" href="javascript:void(0)">
+                                            删除
+                                        </a>
+                                        <a class="h-d-li" href="javascript:void(0)">
+                                            变更负责人
+                                        </a>
+                                        <a class="h-d-li" href="javascript:void(0)">
+                                            锁定
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-h-m">
+                        <div class="h-m-company">
+                            北京联云天下科技有限公司
+                        </div>
+                        <div class="qixin-btn" data-toggle="modal" data-target="#business">
+                            <i class="icon"></i> 工商信息
+                        </div>
+                    </div>
+                </div>
+                <div class="d-message">
+                    <div class="d-m-li">
+    <div class="d-m-name">
+        客户负责人
+    </div>
+    <div class="d-m-main">
+        <i class="d-m-head" style="background-image: url(img/detail-head.png);"></i>
+        <label class="d-m-con">刘宇</label>
+    </div>
+</div>
+<div class="d-m-li">
+    <div class="d-m-name">
+        电话号码
+    </div>
+    <div class="d-m-main">
+        010-8888 8888
+    </div>
+</div>
+<div class="d-m-li">
+    <div class="d-m-name">
+        创建时间
+    </div>
+    <div class="d-m-main">
+        2017-02-27
+    </div>
+</div>
+<div class="d-m-li">
+    <div class="d-m-name">
+        最后联系时间
+    </div>
+    <div class="d-m-main">
+        2017-02-27
+    </div>
+</div>
+<div class="d-m-li">
+    <div class="d-m-name">
+        销售进度
+    </div>
+    <div class="d-m-main">
+        <label class="p-color0">初步沟通</label>
+        <!--<label class="p-color1">初步沟通</label>-->
+    </div>
+</div>
+<div class="d-m-li">
+    <div class="d-m-name">
+        最后一次沟通结果
+    </div>
+    <div class="d-m-main">
+        有意向-索要资料
+    </div>
+</div>
+                </div>
+            </div>
+            <div class="detail-main">
+                <div class="detail-left">
+                    <div class="tags">
+                        <div class="tags-li active">
+                            <a href="javascript:void(0)" onclick="tags(this)">相关</a>
+                        </div>
+                        <div class="tags-li">
+                            <a href="javascript:void(0)" onclick="tags(this)">详细信息</a>
+                        </div>
+                    </div>
+                    <div class="tags-main">
+                        <div class="tags-con-li active">
+                            <div class="list-li">
+                                <div class="list-title">
+                                    <div class="title-right">
+                                        <div class="title-btn">
+                                            <i class="icon-t icon-t-arrow icon" onclick="detail(this)"></i>
+                                        </div>
+                                        <div class="title-btn dropdown">
+                                            <i class="icon-t icon-t-set icon" data-toggle="dropdown"></i>
+                                            <div class="h-r-drop dropdown-menu">
+                                                <div class="h-d-list">
+                                                    <a class="h-d-li" href="javascript:void(0)">
+                                                        删除
+                                                    </a>
+                                                    <a class="h-d-li" href="javascript:void(0)">
+                                                        变更跟进人
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="title-left">
+                                        <i class="title-icon icon-contact icon"></i> 联系人（2）
+                                    </div>
+                                </div>
+                                <div class="list-main">
+                                    <div class="list-table">
+                                        <ul class="table-row table-head">
+                                            <li class="table-li table-li1">
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox"><i></i></label>
+                                                </div>
+                                            </li>
+                                            <li class="table-li table-li2">
+                                                客户姓名
+                                            </li>
+                                            <li class="table-li table-li3">
+                                                手机号
+                                            </li>
+                                            <li class="table-li table-li4">
+                                                跟进人
+                                            </li>
+                                            <li class="table-li table-li5">
+                                                最后一次沟通结果
+                                            </li>
+                                            <li class="table-li table-li6">
+                                                最后一次通话录音
+                                            </li>
+                                            <li class="table-li table-li7">
+
+                                            </li>
+                                        </ul>
+                                        <ul class="table-row">
+    <li class="table-li table-li1">
+        <!--<input class="checkbox" type="checkbox" />-->
+        <div class="checkbox">
+            <label><input type="checkbox"><i></i></label>
+        </div>
+    </li>
+    <li class="table-li table-li2">
+        白又亮
+    </li>
+    <li class="table-li table-li3">
+        13910154169
+    </li>
+    <li class="table-li table-li4">
+        刘晓宇
+    </li>
+    <li class="table-li table-li5">
+        有意向-索要资料
+    </li>
+    <li class="table-li table-li6">
+        通话时长：1’ 11”
+    </li>
+    <li class="table-li table-li7">
+        <i class="icon video"></i>
+        <i class="icon download"></i>
+    </li>
+</ul>
+<ul class="table-row">
+    <li class="table-li table-li1">
+        <!--<input class="checkbox" type="checkbox" />-->
+        <div class="checkbox">
+            <label><input type="checkbox"><i></i></label>
+        </div>
+    </li>
+    <li class="table-li table-li2">
+        白又亮
+    </li>
+    <li class="table-li table-li3">
+        13910154169
+    </li>
+    <li class="table-li table-li4">
+        刘晓宇
+    </li>
+    <li class="table-li table-li5">
+        有意向-索要资料
+    </li>
+    <li class="table-li table-li6">
+        通话时长：1’ 11”
+    </li>
+    <li class="table-li table-li7">
+        <i class="icon video"></i>
+        <i class="icon download"></i>
+    </li>
+</ul>
+<ul class="table-row">
+    <li class="table-li table-li1">
+        <!--<input class="checkbox" type="checkbox" />-->
+        <div class="checkbox">
+            <label><input type="checkbox"><i></i></label>
+        </div>
+    </li>
+    <li class="table-li table-li2">
+        白又亮
+    </li>
+    <li class="table-li table-li3">
+        13910154169
+    </li>
+    <li class="table-li table-li4">
+        刘晓宇
+    </li>
+    <li class="table-li table-li5">
+        有意向-索要资料
+    </li>
+    <li class="table-li table-li6">
+        通话时长：1’ 11”
+    </li>
+    <li class="table-li table-li7">
+        <i class="icon video"></i>
+        <i class="icon download"></i>
+    </li>
+</ul>
+<ul class="table-row">
+    <li class="table-li table-li1">
+        <!--<input class="checkbox" type="checkbox" />-->
+        <div class="checkbox">
+            <label><input type="checkbox"><i></i></label>
+        </div>
+    </li>
+    <li class="table-li table-li2">
+        白又亮
+    </li>
+    <li class="table-li table-li3">
+        13910154169
+    </li>
+    <li class="table-li table-li4">
+        刘晓宇
+    </li>
+    <li class="table-li table-li5">
+        有意向-索要资料
+    </li>
+    <li class="table-li table-li6">
+        通话时长：1’ 11”
+    </li>
+    <li class="table-li table-li7">
+        <i class="icon video"></i>
+        <i class="icon download"></i>
+    </li>
+</ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-li">
+                                <div class="list-title">
+                                    <div class="title-right">
+                                        <div class="title-btn">
+                                            <i class="icon-t icon-t-arrow icon" onclick="detail(this)"></i>
+                                        </div>
+                                        <div class="title-btn">
+                                            <i class="icon-t icon-t-upload icon"></i>
+                                        </div>
+                                    </div>
+                                    <div class="title-left">
+                                        <i class="title-icon icon-word icon"></i> 文档（2）
+                                    </div>
+                                </div>
+                                <div class="list-main">
+                                    <div class="word-list">
+                                        <div class="word-li">
+    <div class="word-t">
+        2月22日语术第一版.docx
+    </div>
+    <div class="word-titme">
+        上传时间：2017-02-22
+    </div>
+    <div class="word-author">
+        上传人：刘宇
+    </div>
+</div>
+<div class="word-li">
+    <div class="word-t">
+        2月22日语术第一版.docx
+    </div>
+    <div class="word-titme">
+        上传时间：2017-02-22
+    </div>
+    <div class="word-author">
+        上传人：刘宇
+    </div>
+</div>
+<div class="word-li">
+    <div class="word-t">
+        2月22日语术第一版.docx
+    </div>
+    <div class="word-titme">
+        上传时间：2017-02-22
+    </div>
+    <div class="word-author">
+        上传人：刘宇
+    </div>
+</div>
+<div class="word-li">
+    <div class="word-t">
+        2月22日语术第一版.docx
+    </div>
+    <div class="word-titme">
+        上传时间：2017-02-22
+    </div>
+    <div class="word-author">
+        上传人：刘宇
+    </div>
+</div>
+<div class="word-li">
+    <div class="word-t">
+        2月22日语术第一版.docx
+    </div>
+    <div class="word-titme">
+        上传时间：2017-02-22
+    </div>
+    <div class="word-author">
+        上传人：刘宇
+    </div>
+</div>
+<div class="word-li">
+    <div class="word-t">
+        2月22日语术第一版.docx
+    </div>
+    <div class="word-titme">
+        上传时间：2017-02-22
+    </div>
+    <div class="word-author">
+        上传人：刘宇
+    </div>
+</div>
+<div class="word-li">
+    <div class="word-t">
+        2月22日语术第一版.docx
+    </div>
+    <div class="word-titme">
+        上传时间：2017-02-22
+    </div>
+    <div class="word-author">
+        上传人：刘宇
+    </div>
+</div>
+<div class="word-li">
+    <div class="word-t">
+        2月22日语术第一版.docx
+    </div>
+    <div class="word-titme">
+        上传时间：2017-02-22
+    </div>
+    <div class="word-author">
+        上传人：刘宇
+    </div>
+</div>
+<div class="word-li">
+    <div class="word-t">
+        2月22日语术第一版.docx
+    </div>
+    <div class="word-titme">
+        上传时间：2017-02-22
+    </div>
+    <div class="word-author">
+        上传人：刘宇
+    </div>
+</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list-li">
+                                <div class="list-title">
+                                    <!--<div class="title-right">
+                                        <div class="title-btn">
+                                            <i class="icon-t icon-t-arrow"></i>
+                                        </div>
+                                        <div class="title-btn">
+                                            <i class="icon-t icon-t-upload"></i>
+                                        </div>
+                                    </div>-->
+                                    <div class="title-left">
+                                        <i class="title-icon icon-history icon"></i> 任务历史（2）
+                                    </div>
+                                </div>
+                                <div class="list-main">
+                                    <div class="list-table list-task">
+                                        <ul class="table-row table-head">
+                                            <li class="table-li">
+                                                任务名称
+                                            </li>
+                                            <li class="table-li">
+                                                人均电话量
+                                            </li>
+                                            <li class="table-li">
+                                                任务状态
+                                            </li>
+                                            <li class="table-li">
+                                                任务详情
+                                            </li>
+                                        </ul>
+                                        <ul class="table-row">
+    <li class="table-li table-color">
+        2月2日外呼任务
+    </li>
+    <li class="table-li">
+        200
+    </li>
+    <li class="table-li">
+        已完成
+    </li>
+    <li class="table-li">
+        <a href="javascript:void(0)">查看详情</a>
+    </li>
+</ul><ul class="table-row">
+    <li class="table-li table-color">
+        2月2日外呼任务
+    </li>
+    <li class="table-li">
+        200
+    </li>
+    <li class="table-li">
+        已完成
+    </li>
+    <li class="table-li">
+        <a href="javascript:void(0)">查看详情</a>
+    </li>
+</ul><ul class="table-row">
+    <li class="table-li table-color">
+        2月2日外呼任务
+    </li>
+    <li class="table-li">
+        200
+    </li>
+    <li class="table-li">
+        已完成
+    </li>
+    <li class="table-li">
+        <a href="javascript:void(0)">查看详情</a>
+    </li>
+</ul><ul class="table-row">
+    <li class="table-li table-color">
+        2月2日外呼任务
+    </li>
+    <li class="table-li">
+        200
+    </li>
+    <li class="table-li">
+        已完成
+    </li>
+    <li class="table-li">
+        <a href="javascript:void(0)">查看详情</a>
+    </li>
+</ul><ul class="table-row">
+    <li class="table-li table-color">
+        2月2日外呼任务
+    </li>
+    <li class="table-li">
+        200
+    </li>
+    <li class="table-li">
+        已完成
+    </li>
+    <li class="table-li">
+        <a href="javascript:void(0)">查看详情</a>
+    </li>
+</ul><ul class="table-row">
+    <li class="table-li table-color">
+        2月2日外呼任务
+    </li>
+    <li class="table-li">
+        200
+    </li>
+    <li class="table-li">
+        已完成
+    </li>
+    <li class="table-li">
+        <a href="javascript:void(0)">查看详情</a>
+    </li>
+</ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tags-con-li">
+                            <div class="message-box">
+                                <div class="message-t">
+                                    基本信息
+                                </div>
+                                <div class="message-li">
+    <div class="message-name">
+        公司名称
+    </div>
+    <div class="message-main">
+        <input type="text" value="北京联云天下科技有限公司"/>
+    </div>
+</div>
+<div class="message-li">
+    <div class="message-name">
+        客户负责人
+    </div>
+    <div class="message-main">
+        <input type="text" value="刘宇"/>
+    </div>
+</div>
+<div class="message-li">
+    <div class="message-name">
+        销售进度
+    </div>
+    <div class="message-main">
+        <input type="text" value="初步沟通"/>
+    </div>
+</div>
+<div class="message-li">
+    <div class="message-name">
+        所属行业
+    </div>
+    <div class="message-main">
+        <input type="text" value="IT-互联网"/>
+    </div>
+</div>
+<div class="message-li">
+    <div class="message-name">
+        注册资金
+    </div>
+    <div class="message-main">
+        <input type="text" value="--"/>
+    </div>
+</div>
+<div class="message-li">
+    <div class="message-name">
+        公司类型
+    </div>
+    <div class="message-main">
+        <input type="text" value="有限责任公司（自然人投资或控股）"/>
+    </div>
+</div>
+                            </div>
+                            <div class="message-box">
+                                <div class="message-t">
+                                    联系信息
+                                </div>
+                                <div class="message-li">
+    <div class="message-name">
+        电话号码
+    </div>
+    <div class="message-main">
+        <input type="text" value="010-8888 8888"/>
+    </div>
+</div>
+<div class="message-li">
+    <div class="message-name">
+        公司地址
+    </div>
+    <div class="message-main">
+        <input type="text" value="点击填写"/>
+    </div>
+</div>
+<div class="message-li">
+    <div class="message-name">
+        公司地址
+    </div>
+    <div class="message-main">
+        <input type="text" value="北京市朝阳区建外soho西区12号楼2704室"/>
+    </div>
+</div>
+<div class="message-li">
+    <div class="message-name">
+        邮政编码
+    </div>
+    <div class="message-main">
+        <input type="text" value="点击填写"/>
+    </div>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <div class="tags">
+                        <div class="tags-li active">
+                            <a href="javascript:void(0)" onclick="tags(this)">时间轴</a>
+                        </div>
+                        <div class="tags-li">
+                            <a href="javascript:void(0)" onclick="tags(this)">团队成员</a>
+                        </div>
+                    </div>
+                    <div class="tags-main">
+                        <div class="tags-con-li active">
+                            <div class="note-form">
+                                <form onsubmit="return false">
+                                    <textarea class="textarea" placeholder="请输入客户备注 "></textarea>
+                                    <div class="btn-right-box">
+                                        <input type="button" class="btn btn-default" value="取消"/>
+                                        <input type="submit" class="btn btn-primary" value="确定"/>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="time-line">
+                                <div class="line-box">
+    <div class="line-time">2017-02-23 17:44</div>
+    <div class="line-main">
+        
+        <div class="line-t">
+            <label class="color color-big">刘宇</label> 与
+            <label class="color">白又亮</label> 进行电话沟通
+        </div>
+        <div class="talk-time">
+            通话时长：1’ 11”<label class="video-box"><i class="icon video"></i> <i class="icon download"></i></label>
+        </div>
+        <div class="">
+            沟通结果：有意向-索要线索
+        </div>
+        <div class="">
+            电话备注：还行
+        </div>
+        
+        
+        
+        
+    </div>
+</div>
+<div class="line-box">
+    <div class="line-time">2017-02-22 17:44</div>
+    <div class="line-main">
+        
+        
+        <div class="line-t">
+            <label class="color color-big">刘宇</label> 给
+            <label class="color">白又亮</label> 发送挂机短信
+        </div>
+        <div>
+            短信模板：第一季度拉新短信模板
+        </div>
+        <div>
+            短信状态：<label class="color">打开链接</label>
+        </div>
+        
+        
+        
+    </div>
+</div>
+<div class="line-box">
+    <div class="line-time">2017-02-21 17:44</div>
+    <div class="line-main">
+        
+        
+        
+        <div class="line-t">
+            <label class="color color-big">刘宇</label> 创建了联系人
+            <label class="color">白又亮</label>
+        </div>
+        
+        
+    </div>
+</div>
+<div class="line-box">
+    <div class="line-time">2017-02-20 17:44</div>
+    <div class="line-main">
+        
+        
+        
+        
+        <div class="line-t">
+            <label class="color color-big">刘宇</label> 创建了客户
+            <a class="line-href" href="javascript:void(0)">北京蜜宝世纪科技有限公司</a>
+        </div>
+        
+    </div>
+</div>
+
+                            </div>
+                        </div>
+                        <div class="tags-con-li">
+                            <div class="member">
+                                <div class="member-li">
+    <a href="javascript:void(0)" class="change-btn">
+        <i class="icon icon-change"></i>
+    </a>
+    <i class="member-head" style="background-image: url(img/detail-head.png);"></i>
+    <label class="color color-big">刘宇</label> 对接联系人
+    <label class="color">白又亮</label>
+</div><div class="member-li">
+    <a href="javascript:void(0)" class="change-btn">
+        <i class="icon icon-change"></i>
+    </a>
+    <i class="member-head" style="background-image: url(img/detail-head.png);"></i>
+    <label class="color color-big">刘宇</label> 对接联系人
+    <label class="color">白又亮</label>
+</div><div class="member-li">
+    <a href="javascript:void(0)" class="change-btn">
+        <i class="icon icon-change"></i>
+    </a>
+    <i class="member-head" style="background-image: url(img/detail-head.png);"></i>
+    <label class="color color-big">刘宇</label> 对接联系人
+    <label class="color">白又亮</label>
+</div><div class="member-li">
+    <a href="javascript:void(0)" class="change-btn">
+        <i class="icon icon-change"></i>
+    </a>
+    <i class="member-head" style="background-image: url(img/detail-head.png);"></i>
+    <label class="color color-big">刘宇</label> 对接联系人
+    <label class="color">白又亮</label>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--新增客户-->
+<div class="modal fade" data-backdrop="false" id="customer">
+    <div class="layer-bg" data-dismiss="modal" aria-hidden="true"></div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header layer-head">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">新建客户</h4>
+            </div>
+            <div class="modal-body">
+                <div class="message">
+    <div class="m-row">
+    <div class="m-name">
+        公司名称
+    </div>
+    <div class="m-info m-input">
+        
+        
+        <input type="text" class="input" placeholder="请输入公司名称"/>
+        
+    </div>
+</div><div class="m-row">
+    <div class="m-name">
+        联系人姓名
+    </div>
+    <div class="m-info m-input">
+        
+        
+        <input type="text" class="input" placeholder="请输入联系人姓名"/>
+        
+    </div>
+</div><div class="m-row">
+    <div class="m-name">
+        联系人手机号
+    </div>
+    <div class="m-info m-input">
+        
+        
+        <input type="text" class="input" placeholder="请输入联系人手机号"/>
+        
+    </div>
+</div><div class="m-row">
+    <div class="m-name">
+        公司地址
+    </div>
+    <div class="m-info m-input">
+        
+        
+        <input type="text" class="input" placeholder="请输入公司地址"/>
+        
+    </div>
+</div><div class="m-row">
+    <div class="m-name">
+        公司类型
+    </div>
+    <div class="m-info m-input">
+        
+        
+        <input type="text" class="input" placeholder="请输入公司类型"/>
+        
+    </div>
+</div><div class="m-row">
+    <div class="m-name">
+        备注
+    </div>
+    <div class="m-info m-input">
+        
+        <textarea class="textarea" placeholder="请输入备注"></textarea>
+        
+        
+    </div>
+</div>
+</div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                
+                <button type="button" class="btn btn-primary">提交</button>
+                
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- 自定义表头 -->
+<div class="modal fade" data-backdrop="false" id="customHead">
+    <div class="layer-bg" data-dismiss="modal" aria-hidden="true"></div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header layer-head">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">编辑显示字段</h4>
+            </div>
+            <div class="modal-body">
+                <div class="list-warp">
+    <div class="list-left">
+        <div class="list-t">
+            隐藏字段
+        </div>
+        <div id="list-left"></div>
+    </div>
+    <div class="move-list">
+        <a href="javascript:listMove(0);"><i class="icon-list icon icon-list-left"></i></a>
+        <a href="javascript:listMove(1);"><i class="icon-list icon icon-list-right"></i></a>
+    </div>
+    <div class="list-right">
+        <div class="list-t">
+            显示字段
+        </div>
+        <div id="list-right"></div>
+    </div>
+    <div class="move-list">
+        <a href="javascript:listMove(2);"><i class="icon-list icon icon-list-up"></i></a>
+        <a href="javascript:listMove(3);"><i class="icon-list icon icon-list-down"></i></a>
+    </div>
+</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                
+                <button type="button" class="btn btn-primary">提交</button>
+                
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!--调用企信获得的企业信息-->
+<div class="modal fade" data-backdrop="false" id="business">
+    <div class="layer-bg" data-dismiss="modal" aria-hidden="true"></div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header layer-head">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">工商信息</h4>
+            </div>
+            <div class="modal-body">
+                <div class="message">
+    <div class="m-row">
+    <div class="m-name">
+        公司名称
+    </div>
+    <div class="m-info">
+        北京铁路局北京铁路局
+    </div>
+</div><div class="m-row">
+    <div class="m-name">
+        公司类型
+    </div>
+    <div class="m-info">
+        全民所有制
+    </div>
+</div><div class="m-row">
+    <div class="m-name">
+        行业
+    </div>
+    <div class="m-info">
+        铁路运输业
+    </div>
+</div><div class="m-row">
+    <div class="m-name">
+        法定代表人
+    </div>
+    <div class="m-info">
+        刘树蓂
+    </div>
+</div><div class="m-row">
+    <div class="m-name">
+        注册资金
+    </div>
+    <div class="m-info">
+        1954073万人民币
+    </div>
+</div><div class="m-row">
+    <div class="m-name">
+        经营范围
+    </div>
+    <div class="m-info">
+        铁路客货运输；装卸、仓储；铁路运输设备、设施、配件的制造、安装、维修；建设项目发包；工程勘测、设计、施工的组织协调与管理；原材料、燃料、配件的采购、供应、销售、仓储；生活服务设施的经营与管理（国家有专项规定的除外）。
+    </div>
+</div><div class="m-row">
+    <div class="m-name">
+        注册地址
+    </div>
+    <div class="m-info">
+        北京市东城区老钱胡同16号
+    </div>
+</div><div class="m-row">
+    <div class="m-name">
+        办公地址
+    </div>
+    <div class="m-info">
+        北京市东城区老钱局胡同16号
+    </div>
+</div><div class="m-row">
+    <div class="m-name">
+        电话
+    </div>
+    <div class="m-info">
+        暂无信息
+    </div>
+</div>
+</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<script src="js/scripts.js"></script>
+<script src="js/customer.js"></script>
+</body>
+</html>
