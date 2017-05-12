@@ -71,7 +71,7 @@
   height: 100%;
 }
 
-table-nav-close {
+.table-nav-close {
   font-size: 24px;
   line-height: 2.5;
   margin-right: 20px;
@@ -149,22 +149,22 @@ $listicon: list-left list-right list-up list-down;
 .icon-list-left {
   margin: 130px 0 20px;
 }
-
-.icon-video {
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-  margin: 13px 5px;
-  background: url("../img/video.png");
-}
-
-.icon-download {
-  display: inline-block;
-  width: 22px;
-  height: 17px;
-  margin: 13px 5px;
-  background: url("../img/download.png");
-}
+//
+//.icon-video {
+//  display: inline-block;
+//  width: 17px;
+//  height: 17px;
+//  margin: 13px 5px;
+//  background: url("../img/video.png");
+//}
+//
+//.icon-download {
+//  display: inline-block;
+//  width: 22px;
+//  height: 17px;
+//  margin: 13px 5px;
+//  background: url("../img/download.png");
+//}
 
 //新建客户，企业信息，编辑信息
 .message {

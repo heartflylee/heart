@@ -100,49 +100,7 @@ $h-p-t: 10px;
     line-height: 0;
     &:hover {
       background: #f5f5f5;
-      .nav-tip {
-        display: block;
-      }
     }
-  }
-}
-
-$navNH: 16px;
-.nav-num {
-  display: inline-block;
-  position: absolute;
-  top: 2px;
-  left: 16px;
-  min-width: $navNH;
-  height: $navNH;
-  padding: 0 3px;
-  line-height: $navNH;
-  text-align: center;
-  color: #fff;
-  background: #b51729;
-  border-radius: $navNH / 2;
-
-}
-
-.nav-tip {
-  position: absolute;
-  display: none;
-  top: 0;
-  right: 45px;
-  padding: 10px 20px;
-  line-height: 18px;
-  white-space: nowrap;
-  color: #fff;
-  border-radius: 3px;
-  background: rgba(37, 40, 52, .8);
-  &:after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    right: -5px;
-    transform: translate3d(0, -50%, 0);
-    @include triangle(right, 5px, rgba(37, 40, 52, .8));
   }
 }
 

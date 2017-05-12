@@ -13,7 +13,6 @@
 
 
 <script src="js/jquery-1.10.2.min.js"></script>
-<!--<script src="js/jquery.2.1.1.min.js"></script>-->
 <script src="js/bootstrap.js"></script>
 <script src="js/jquery.autocomplete.js"></script>
 <script src="js/beAlert.js"></script>
@@ -148,23 +147,18 @@
         <div class="h-nav-box">
             <div class="nav-li">
                 <a class="nav-href" href="#">
-                    <i class="nav-icon nav-service" data-toggle="tooltip" data-placement="bottom" title="在线客服"></i>
-                    <!--<label class="nav-tip">在线客服</label>-->
+                    <i class="nav-icon nav-service" data-toggle="tooltip" data-placement="auto left" title="在线客服"></i>
                 </a>
             </div>
             <div class="nav-li">
                 <a class="nav-href info-number" href="javascript:void(0);">
-                    <!--<label class="nav-num">555</label>-->
-                    <i class="nav-icon nav-news" data-toggle="tooltip" data-placement="bottom" title="消息"></i>
+                    <i class="nav-icon nav-news" data-toggle="tooltip" data-placement="auto left" title="消息"></i>
                     <span class="badge bg-danger">555</span>
-                    <!--<label class="nav-tip">消息</label>-->
                 </a>
-
             </div>
             <div class="nav-li dropdown">
                 <a class="nav-href" href="javascript:void(0);" data-toggle="dropdown">
-                    <i class="nav-icon nav-help" data-toggle="tooltip" data-placement="bottom" title="帮助"></i>
-                    <!--<label class="nav-tip">帮助</label>-->
+                    <i class="nav-icon nav-help" data-toggle="tooltip" data-placement="auto left" title="帮助"></i>
                 </a>
                 <div class="dropdown-menu dropdown-box">
                     <a class="dropli" href="javascript:void(0);">
@@ -242,7 +236,7 @@
     </div>
     <div class="table-setting">
         <div class="table-nav-right">
-            <i class="table-nav-close icon">&times;</i>
+            <i class="table-nav-close icon" onclick="settingHide()">&times;</i>
         </div>
         <div class="table-nav-list">
             <ul>
@@ -265,8 +259,6 @@
     <div class="jqxtable" id="jqxtable"></div>
     <div id="events"></div>
 </div>
-
-
 
     </div>
 </section>

@@ -26,10 +26,10 @@
 
 .a-logo {
   display: inline-block;
-  width: 120px;
-  height: 23px;
+  //width: 120px;
+  //height: 23px;
   margin: ($header-h - 23)/2 0 0 30px;
-  background: url("../../img/h-logo.png");
+  //background: url("../img/h-logo.png");
 }
 
 .menu-btn-box {
@@ -97,34 +97,33 @@ a.nav-info {
 
 .m-icon {
   position: absolute;
-  left: 36px;
-  top: ($menu-h - 30)/2;
-  width: 30px;
-  height: 30px;
+  left: 40px;
+  top: 21px;
+  line-height: 0;
   text-align: center;
   @include icon;
 }
 
-$menu: 605 607 609 60 b;
-$menuActive: 606 608 60 a 60 c;
+$menu: "\e605" "\e607" "\e609" "\e60b";
+$menuActive: "\e606" "\e608" "\e60a" "\e60c";
 @for $i from 1 through 4 {
   .icon-m#{$i} {
     &:after {
       font-family: "iconfont" !important;
       font-size: 22px;
       font-style: normal;
-      content: "\e#{nth($menu,$i)}";
+      content: "#{nth($menu,$i)}";
     }
 
     //background-image: url("../img/icon-m#{$i}.png");
     &.active:after {
-      content: "\e#{nth($menuActive,$i)}";
+      content: "#{nth($menuActive,$i)}";
       //background-image: url("../img/icon-m#{$i}-active.png");
     }
     .m-nav:hover &:after,
     .nav-active &:after,
     .nav-info:hover &:after {
-      content: "\e#{nth($menuActive,$i)}";
+      content: "#{nth($menuActive,$i)}";
       //background-image: url("../img/icon-m#{$i}-active.png");
     }
   }
@@ -137,10 +136,10 @@ $menuActive: 606 608 60 a 60 c;
   width: 24px;
   height: 24px;
   @include icon;
-  background-image: url("../../img/arrow.png");
+  background-image: url("../img/arrow.png");
   .nav-info.active &,
   .nav-info:hover & {
-    background-image: url("../../img/arrow-active.png");
+    background-image: url("../img/arrow-active.png");
     animation: arrow 0.2s ease-in both;
   }
 }

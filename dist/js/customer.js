@@ -189,6 +189,7 @@ $(document).ready(function() {
         columns: columns
     });
 
+    //显示客户详细信息
     $("#jqxtable").on('cellclick', function(event) {
         console.log(event);
         if(event.args.datafield == 'cusname') {
@@ -209,6 +210,8 @@ $(document).ready(function() {
         }
         setting.find(".count-select").text(rowindexes.length);
     });
+
+
     //显示自定义表头
     $('#jqxtable').on('columnclick', function(event) {
         console.log(event);
@@ -221,6 +224,12 @@ $(document).ready(function() {
         $(".table-setting").fadeOut();
     });
 });
+
+//表格顶部设置隐藏
+function settingHide(){
+    var setting = $(".table-setting");
+    setting.fadeOut();
+}
 
 //详情内下拉
 function detailDrop(obj, event) {
