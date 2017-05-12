@@ -187,7 +187,7 @@ $input-color: $gray !default;
 //** `<input>` border color
 $input-border: #ccc !default;
 
-// TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
+// Rename `$input-border-radius` to `$input-border-radius-base` in v4
 //** Default `.form-control` border radius
 // This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
 $input-border-radius: $border-radius-base !default;
@@ -506,7 +506,8 @@ $tooltip-max-width: 200px !default;
 //** Tooltip text color
 $tooltip-color: #fff !default;
 //** Tooltip background color
-$tooltip-bg: #000 !default;
+//$tooltip-bg: #000 !default;
+$tooltip-bg: rgba(37, 40, 52, .8) !default;
 $tooltip-opacity: .9 !default;
 
 //** Tooltip arrow width

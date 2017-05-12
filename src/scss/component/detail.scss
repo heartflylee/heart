@@ -265,9 +265,10 @@ a.h-d-li, .h-d-li {
 }
 
 .icon-word {
+  top:0;
   &:after {
     content: "\e618";
-    font-size: 36px;
+    font-size: 40px;
     color: #f4d0a8;
   }
 }
