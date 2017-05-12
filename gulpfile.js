@@ -51,7 +51,7 @@
       remove: true,
       add: true,
       flexbox: true
-    })).pipe(minify()).pipe(sourcemaps.write(".")).pipe(plumber.stop()).pipe(gulp.dest('./dist/css'));
+    })).pipe(minify()).pipe(sourcemaps.write("./map")).pipe(plumber.stop()).pipe(gulp.dest('./dist/css'));
   });
 
   gulp.task('miniJs', function() {

@@ -43,7 +43,7 @@ gulp.task('sassCss', ->
   }))
 #    .pipe(csso())
     .pipe(minify())
-    .pipe(sourcemaps.write("."))
+    .pipe(sourcemaps.write("./map"))
     .pipe(plumber.stop())
     .pipe(gulp.dest('./dist/css'))
 )
