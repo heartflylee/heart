@@ -47,10 +47,7 @@ gulp.task('sassCss', ->
     .pipe(minify())
 #    .pipe(replace('}','}\n'))
     .pipe(sourcemaps.write('./map'))
-#    .pipe(gulp.dest('./dist/css'))
-#    .pipe(minify())
     .pipe(plumber.stop())
-#    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('./dist/css'))
 )
 
@@ -148,4 +145,3 @@ gulp.task('reload', (callback)->
 gulp.task('reload-browser', ->
   browserSync.reload()
 )
-
