@@ -34,7 +34,7 @@ $derection: tr tl br bl b t l r all reset;
     font-style: normal;
     font-weight: bold;
     line-height: 1.8;
-    color:#50d2c2;
+    color: #50d2c2;
   }
 }
 
@@ -99,13 +99,13 @@ $derection: tr tl br bl b t l r all reset;
   display: none;
 }
 
-$column: (sortascbutton:"asc", sortdescbutton:"desc");//, filterbutton:"635");
-@each $btn,$columnIcon in $column {
+$column: (sortascbutton:"asc", sortdescbutton:"desc"); //, filterbutton:"635");
+@each $btn, $columnIcon in $column {
   .jqx-grid-column-#{$btn} {
     //width:10px;
     //height:16px;
     border: none;
-          //background-image: url("../img/#{$btn}.png");
+    //background-image: url("../img/#{$btn}.png");
     background-image: url("../img/#{$columnIcon}.png");
     //background-size:contain;
     background-repeat: no-repeat;
@@ -117,6 +117,7 @@ $column: (sortascbutton:"asc", sortdescbutton:"desc");//, filterbutton:"635");
     //}
   }
 }
+
 .jqx-grid-column-filterbutton {
   border: none;
   //      background-image: url("../img/#{$btn}.png");
@@ -129,6 +130,7 @@ $column: (sortascbutton:"asc", sortdescbutton:"desc");//, filterbutton:"635");
     content: "\e6d1";
   }
 }
+
 //
 //.jqx-grid-sortasc-icon {
 //  @include jqx-icon;
@@ -148,8 +150,8 @@ $column: (sortascbutton:"asc", sortdescbutton:"desc");//, filterbutton:"635");
 //  }
 //}
 
-$sorts: (sortasc:"65c" ,sortdesc:"65b");
-@each $sort,$sorticon in $sorts {
+$sorts: (sortasc:"65c", sortdesc:"65b");
+@each $sort, $sorticon in $sorts {
   .jqx-grid-#{$sort}-icon {
     //background-image: url("../img/#{$sort}.png");
     //background-repeat: no-repeat;
@@ -168,7 +170,7 @@ $sorts: (sortasc:"65c" ,sortdesc:"65b");
     @include jqx-icon;
     &:after {
       content: "\e#{$sorticon}";
-      font-size:20px;
+      font-size: 20px;
       line-height: 1.5;
     }
   }
@@ -740,6 +742,7 @@ $scrollbar-thum-bc: #fff;
   padding: 0;
   //  border: 0px solid transparent;
 }
+
 %arrow-icon {
   @include jqx-icon;
   &:after {
@@ -751,11 +754,13 @@ $scrollbar-thum-bc: #fff;
     color: #50d2c2;
   }
 }
+
 .jqx-icon-arrow-down {
   &.jqx-grid-column-menubutton {
     @extend %arrow-icon;
   }
 }
+
 /*applied to the scrollbar buttons in default state.*/
 //滚动条按钮
 .jqx-scrollbar-button-state-normal {
@@ -779,7 +784,6 @@ $scrollbar-thum-bc: #fff;
     //background-position: center center;
     //background-image: url("../img/scrollbar-up.png");
   }
-
 
   .jqx-icon-arrow-down,
   .jqx-icon-arrow-down-hover,
@@ -1716,46 +1720,49 @@ div[role="row"] .jqx-grid-cell-pinned:nth-child(3) {
   cursor: pointer;
 }
 
-
-
-
 /*自定义筛选*/
 //筛选框阴影
-#gridmenujqxtable{
-  height:auto !important;
-  box-shadow: 0 0 5px rgba(0,0,0,.5);
+#gridmenujqxtable {
+  height: auto !important;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .5);
 }
+
 //输入框
-.filter-input{
-  width:115px;
-  margin-top:15px;
+.filter-input {
+  width: 115px;
+  margin-top: 15px;
   line-height: 1.5;
-  border:1px solid #999;
-  border-radius:2px;
+  border: 1px solid #999;
+  border-radius: 2px;
 }
+
 //按钮外框
-.filter-btn-box{
-  margin:10px 0;
+.filter-btn-box {
+  margin: 10px 0;
 }
+
 //按钮
-.filter-button{
+.filter-button {
   padding: 2px 5px;
-  margin:0 2px;
-  line-height:1.5;
-  border:1px solid #999;
+  margin: 0 2px;
+  line-height: 1.5;
+  border: 1px solid #999;
 }
-.jqx-menu-item-top{
-line-height: 2;
+
+.jqx-menu-item-top {
+  line-height: 2;
 }
+
 //自定义筛选的文本框下拉可选文字
 .jqx-menu-item {
- a{
-   color:#999;
-   line-height:1.8;
- }
+  a {
+    color: #999;
+    line-height: 1.8;
+  }
 }
+
 /*自定义筛选*/
-.jqx-grid-cell-text{
-  line-height:40px;
+.jqx-grid-cell-text {
+  line-height: 40px;
 }
 
