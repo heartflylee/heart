@@ -592,7 +592,7 @@
                             });
                             var C = a('<span style="top: 2px; position: relative; color: inherit; border: none; background-color: transparent;">' + e.gridlocalization.filterselectstring + "</span>");
                             if (C.addClass(this.toThemeProperty("jqx-item")), void 0 != B) {
-                                w || B.host.height(200), B.insertAt(e.gridlocalization.filterselectallstring, 0), n.jqxDropDownList("setContent", C);
+                                w || B.host.height("auto"), B.insertAt(e.gridlocalization.filterselectallstring, 0), n.jqxDropDownList("setContent", C);
                                 var D = !0;
                                 new Array;
                                 B.checkAll(!1), e.addHandler(B.host, "checkChange", function (a) {
@@ -1120,7 +1120,7 @@
             if (!b.host.jqxDropDownList) throw new Error("jqxGrid: Missing reference to jqxdropdownlist.js.");
             b.filterpanel.detach(), b.excelfilterpanel.detach(), d.filterpanel && d.filterpanel.detach(), a(c).children().detach();
             var g = a(b.menuitemsarray[6]);
-            if (a(g).css("height", "190px"), d.createfilterpanel && !d.filterpanel) {
+            if (a(g).css("height", "auto"), d.createfilterpanel && !d.filterpanel) {
                 var h = a("<div class='filter' style='margin-left: 7px;'></div>");
                 a(c).append(h), d.createfilterpanel(d.displayfield, h), d.filterpanel = h
             }

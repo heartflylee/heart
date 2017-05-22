@@ -98,9 +98,10 @@ a.a-btn {
 
 .code {
   @include icon;
-  width: 133px;
-  height: 133px;
+  width: 152px;
+  height: 152px;
   background-image: url("../img/down-code.jpg");
+  background-size:contain;
 }
 
 .icon {

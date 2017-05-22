@@ -32,7 +32,9 @@ $derection: tr tl br bl b t l r all reset;
     font-family: "iconfont";
     font-size: 16px;
     font-style: normal;
+    font-weight: bold;
     line-height: 1.8;
+    color:#50d2c2;
   }
 }
 
@@ -97,38 +99,57 @@ $derection: tr tl br bl b t l r all reset;
   display: none;
 }
 
-$column: sortascbutton sortdescbutton filterbutton;
-@each $btn in $column {
+$column: (sortascbutton:"asc", sortdescbutton:"desc");//, filterbutton:"635");
+@each $btn,$columnIcon in $column {
   .jqx-grid-column-#{$btn} {
+    //width:10px;
+    //height:16px;
     border: none;
-    //      background-image: url("../img/#{$btn}.png");
-    //background-image: url("../img/sortascbutton.png");
-    //background-repeat: no-repeat;
-    //background-position: center;
-    cursor: pointer;
-    @include jqx-icon;
-    &:after {
-      content: "\e635";
-    }
+          //background-image: url("../img/#{$btn}.png");
+    background-image: url("../img/#{$columnIcon}.png");
+    //background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    //cursor: pointer;
+    //@include jqx-icon;
+    //&:after {
+    //  content: "\e#{$columnIcon}";
+    //}
   }
 }
-
-.jqx-grid-sortasc-icon {
+.jqx-grid-column-filterbutton {
+  border: none;
+  //      background-image: url("../img/#{$btn}.png");
+  //background-image: url("../img/sortascbutton.png");
+  //background-repeat: no-repeat;
+  //background-position: center;
+  cursor: pointer;
   @include jqx-icon;
   &:after {
-    content: "\e61e";
+    content: "\e6d1";
   }
 }
+//
+//.jqx-grid-sortasc-icon {
+//  @include jqx-icon;
+//  &:after {
+//    content: "\e65c";
+//    font-size:20px;
+//    line-height: 1.5;
+//  }
+//}
+//
+//.jqx-grid-sortdesc-icon {
+//  @include jqx-icon;
+//  &:after {
+//    content: "\e65b";
+//    font-size:20px;
+//    line-height: 1.5;
+//  }
+//}
 
-.jqx-grid-sortdesc-icon {
-  @include jqx-icon;
-  &:after {
-    content: "\e61d";
-  }
-}
-
-$sorts: sortasc sortdesc;
-@each $sort in $sorts {
+$sorts: (sortasc:"65c" ,sortdesc:"65b");
+@each $sort,$sorticon in $sorts {
   .jqx-grid-#{$sort}-icon {
     //background-image: url("../img/#{$sort}.png");
     //background-repeat: no-repeat;
@@ -137,11 +158,19 @@ $sorts: sortasc sortdesc;
     //&:after{
     //    content: "\e635";
     //}
-    width: 13px;
-    height: 13px;
-    float: left;
+    //width: 13px;
+    //height: 13px;
+    //float: left;
+    display: inline-block;
+    line-height: 0;
     margin-left: 4px;
     margin-right: 4px;
+    @include jqx-icon;
+    &:after {
+      content: "\e#{$sorticon}";
+      font-size:20px;
+      line-height: 1.5;
+    }
   }
 }
 
@@ -371,7 +400,7 @@ $sorts: sortasc sortdesc;
 /*applied to the check box when the widget is disabled. Displays a disabled check icon.*/
 .jqx-checkbox-check-disabled {
   float: left;
-  background: transparent url("../images/check_disabled.png") center center no-repeat;
+  background: transparent url("../img/check_disabled.png") center center no-repeat;
   padding: 0;
   border: none;
   outline: none;
@@ -391,7 +420,7 @@ $sorts: sortasc sortdesc;
 /*applied to the check box when its state is indeterminate and it is disabled.*/
 .jqx-checkbox-check-indeterminate-disabled {
   float: left;
-  background: transparent url("../images/check_indeterminate_disabled.png") center center no-repeat;
+  background: transparent url("../img/check_indeterminate_disabled.png") center center no-repeat;
   padding: 0;
   border: none;
   outline: none;
@@ -711,7 +740,22 @@ $scrollbar-thum-bc: #fff;
   padding: 0;
   //  border: 0px solid transparent;
 }
-
+%arrow-icon {
+  @include jqx-icon;
+  &:after {
+    content: "\e635";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.8;
+    color: #50d2c2;
+  }
+}
+.jqx-icon-arrow-down {
+  &.jqx-grid-column-menubutton {
+    @extend %arrow-icon;
+  }
+}
 /*applied to the scrollbar buttons in default state.*/
 //滚动条按钮
 .jqx-scrollbar-button-state-normal {
@@ -735,6 +779,8 @@ $scrollbar-thum-bc: #fff;
     //background-position: center center;
     //background-image: url("../img/scrollbar-up.png");
   }
+
+
   .jqx-icon-arrow-down,
   .jqx-icon-arrow-down-hover,
   .jqx-icon-arrow-down-selected {
@@ -1598,6 +1644,7 @@ div[role="row"]:nth-child(even) .jqx-grid-cell {
     border: 1px solid #d4d4d4;
     line-height: 30px;
     height: 30px !important;
+    border-radius: 5px;
     &:active,
     &:hover {
       background: #eefaf9;
@@ -1668,3 +1715,47 @@ div[role="columnheader"] {
 div[role="row"] .jqx-grid-cell-pinned:nth-child(3) {
   cursor: pointer;
 }
+
+
+
+
+/*自定义筛选*/
+//筛选框阴影
+#gridmenujqxtable{
+  height:auto !important;
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
+}
+//输入框
+.filter-input{
+  width:115px;
+  margin-top:15px;
+  line-height: 1.5;
+  border:1px solid #999;
+  border-radius:2px;
+}
+//按钮外框
+.filter-btn-box{
+  margin:10px 0;
+}
+//按钮
+.filter-button{
+  padding: 2px 5px;
+  margin:0 2px;
+  line-height:1.5;
+  border:1px solid #999;
+}
+.jqx-menu-item-top{
+line-height: 2;
+}
+//自定义筛选的文本框下拉可选文字
+.jqx-menu-item {
+ a{
+   color:#999;
+   line-height:1.8;
+ }
+}
+/*自定义筛选*/
+.jqx-grid-cell-text{
+  line-height:40px;
+}
+
