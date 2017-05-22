@@ -64,9 +64,7 @@
   });
 
   gulp.task('miniImg', function() {
-    return gulp.src('./src/img/*.*').pipe(plumber()).pipe(imagemin({
-      progressive: true
-    })).pipe(plumber.stop()).pipe(gulp.dest('./dist/img/'));
+    return gulp.src('./src/img/*.*').pipe(plumber()).pipe(plumber.stop()).pipe(gulp.dest('./dist/img/'));
   });
 
   gulp.task('concatHtml', function() {
@@ -80,8 +78,8 @@
   });
 
   gulp.task('copy', function() {
-    gulp.src('./src/js/*.js').pipe(gulp.dest('./dist/js/'));
-    gulp.src('./src/js/jqx/*.*').pipe(gulp.dest('./dist/js/jqx/'));
+    gulp.src('./src/js/*.js').pipe(plumber()).pipe(plumber.stop()).pipe(gulp.dest('./dist/js/'));
+    gulp.src('./src/js/jqx/*.js').pipe(plumber()).pipe(plumber.stop()).pipe(gulp.dest('./dist/js/jqx/'));
     return gulp.src('./src/fonts/*.*').pipe(gulp.dest('./dist/fonts/'));
   });
 

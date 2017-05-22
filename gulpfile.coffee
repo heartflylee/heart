@@ -74,9 +74,9 @@ gulp.task('miniJs', ->
 gulp.task('miniImg',->
   gulp.src('./src/img/*.*')
     .pipe(plumber())
-  .pipe(imagemin({
-    progressive: true
-  }))
+#  .pipe(imagemin({
+#    progressive: true
+#  }))
     .pipe(plumber.stop())
   .pipe(gulp.dest('./dist/img/'))
 )
@@ -113,8 +113,14 @@ gulp.task('concatHtml', ->
 #复制图片，公共css以及js
 gulp.task('copy', ->
   gulp.src('./src/js/*.js')
+    .pipe(plumber())
+#    .pipe(uglify())
+    .pipe(plumber.stop())
     .pipe(gulp.dest('./dist/js/'))
-  gulp.src('./src/js/jqx/*.*')
+  gulp.src('./src/js/jqx/*.js')
+    .pipe(plumber())
+#    .pipe(uglify())
+    .pipe(plumber.stop())
     .pipe(gulp.dest('./dist/js/jqx/'))
   gulp.src('./src/fonts/*.*')
     .pipe(gulp.dest('./dist/fonts/'))
