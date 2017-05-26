@@ -470,6 +470,7 @@ $(document).ready(function () {
         filterPanel.append(applyinput);
         filterbutton.jqxButton();
         filterclearbutton.jqxButton();
+        console.log(data);
         var dataSource =
             {
                 localdata: data,
@@ -724,6 +725,16 @@ function customSubmit() {
     $("#jqxtable").jqxGrid('endupdate');
     $("#customHead").modal("hide");
 }
+
+
+//添加用户提交
+function customAdd(){
+    alert("","添加成功",function(){
+        //新增客户弹框隐藏
+        $("#customer").modal("hide");
+    },{type:"success"});
+}
+
 //客户详情切换
 function tags(obj) {
     var $obj = $(obj);

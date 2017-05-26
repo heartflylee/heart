@@ -25,6 +25,9 @@
   &:hover {
     background: #f5f5f5;
   }
+  label{
+    cursor: pointer;
+  }
 }
 
 .h-r-li {
@@ -112,6 +115,7 @@ a.h-d-li, .h-d-li {
   border-radius: 3px;
   background: #50D2C2;
   color: #fff;
+  cursor: pointer;
   i {
     display: inline-block;
     position: absolute;
@@ -283,6 +287,7 @@ a.h-d-li, .h-d-li {
   margin: 0 5px 0;
   min-width: 25px;
   color: #999;
+  cursor: pointer;
 }
 
 .icon-t {
