@@ -950,7 +950,7 @@ $scrollbar-thum-bc: #fff;
   .jqx-button.jqx-fill-state-normal,
   .jqx-button.jqx-fill-state-pressed {
     outline: none;
-    border: 1px solid transparent;
+    border: 1px solid;
     border-color: #50c2c2;
   }
 }
@@ -1281,7 +1281,7 @@ a.jqx-grid-pager-number {
   outline: none;
   zoom: 1 !important;
   empty-cells: show;
-  border-right: 1px solid #aaa;
+  //border-right: 1px solid #aaa;
   line-height: 1.231;
   width: auto;
   border: none;
@@ -1380,7 +1380,6 @@ a.jqx-fill-state-pressed {
   //  border-width: 0 1px 0 0;
   border-color: transparent;
   white-space: nowrap;
-  border-style: solid;
   font-weight: normal;
   overflow: hidden;
   text-align: left;
@@ -1609,12 +1608,24 @@ div[role="gridcell"] {
 
 div[role="row"]:nth-child(odd) .jqx-grid-cell {
   background: #fff;
+  &.jqx-grid-cell-selected {
+    background: #fff6e5;
+  }
 }
 
 div[role="row"]:nth-child(even) .jqx-grid-cell {
   background: #f7f8f8;
+  &.jqx-grid-cell-selected {
+    background: #fff6e5;
+  }
 }
-
+//div[role="row"] .jqx-grid-cell {
+//  &.jqx-grid-cell-selected {
+//    background-repeat: repeat-x;
+//    border-color: #fff6e5 !important;
+//    background: #fff6e5;
+//  }
+//}
 .jqx-name {
   display: block;
   line-height: 40px;
@@ -1665,7 +1676,6 @@ div[role="row"]:nth-child(even) .jqx-grid-cell {
   //  border-width: 0 1px 0 0;
   border-color: transparent;
   white-space: nowrap;
-  border-style: solid;
   font-weight: normal;
   overflow: hidden;
   text-align: left;
@@ -1705,9 +1715,9 @@ div[role="gridcell"] i + div {
 }
 
 //表格选中
-.jqx-grid-cell-selected {
-  background: #fff6e5;
-}
+//.jqx-grid-cell-selected {
+//  background: #fff6e5;
+//}
 
 div[role="row"] .jqx-grid-cell-pinned,
 div[role="columnheader"] {

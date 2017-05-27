@@ -526,6 +526,42 @@ $(document).ready(function () {
             textInput.val("");
         });
     }
+
+    //显示客户详细信息
+    $("#jqxtable").on('cellclick', function (event) {
+        // console.log(event);
+        if (event.args.datafield == 'cusname') {
+            customerShow();
+        } else {
+            return false;
+        }
+    });
+
+    //表格内复选框
+    $("#jqxtable").on('rowselect rowunselect', function (e) {
+        var rowindexes = $('#jqxtable').jqxGrid('getselectedrowindexes');
+        var setting = $(".table-setting");
+        if (rowindexes.length > 0) {
+            setting.fadeIn();
+        } else {
+            setting.fadeOut();
+        }
+        setting.find(".count-select").text(rowindexes.length);
+    });
+    //隐藏选择之后显示的操作
+    $(".table-setting").find(".close-gray").click(function () {
+        $(".table-setting").fadeOut();
+    });
+
+    //显示自定义表头
+    $('#jqxtable').on('columnclick', function (event) {
+        // console.log(event);
+        console.log(event.args);
+        if (event.args.datafield == 'header') {
+            CustomHead();
+        }
+    });
+
     // create jqxtable.
     $("#jqxtable").jqxGrid({
         width: '100%',
@@ -553,40 +589,7 @@ $(document).ready(function () {
     });
 
 
-    //显示客户详细信息
-    $("#jqxtable").on('cellclick', function (event) {
-        // console.log(event);
-        if (event.args.datafield == 'cusname') {
-            customerShow();
-        } else {
-            return false;
-        }
-    });
 
-    //表格内复选框
-    $("#jqxtable").on('rowselect rowunselect', function (e) {
-        var rowindexes = $('#jqxtable').jqxGrid('getselectedrowindexes');
-        var setting = $(".table-setting");
-        if (rowindexes.length > 0) {
-            setting.fadeIn();
-        } else {
-            setting.fadeOut();
-        }
-        setting.find(".count-select").text(rowindexes.length);
-    });
-
-
-    //显示自定义表头
-    $('#jqxtable').on('columnclick', function (event) {
-        // console.log(event);
-        console.log(event.args);
-        if (event.args.datafield == 'header') {
-            CustomHead();
-        }
-    });
-    $(".table-setting").find(".close-gray").click(function () {
-        $(".table-setting").fadeOut();
-    });
 });
 
 //表格顶部设置隐藏

@@ -1,7 +1,7 @@
 // common scripts
 (function () {
     "use strict";
-    //一集菜单点击事件
+    //一级菜单点击事件
     jQuery('.menu-list > a').click(function () {
         var parent = jQuery(this).parent();
         var sub = parent.find('> ul');

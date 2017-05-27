@@ -46,10 +46,11 @@ $(function () {
     });
 
     //日历
-    $("#datetime").jqxCalendar({width: 220, height: 220, selectionMode: 'range', culture: 'ch-CN'});
-    $("#datetime").jqxCalendar({firstDayOfWeek: 1});
-    $('#datetime ').jqxCalendar('setMaxDate', new Date());
-    $("#datetime").on('change', function (event) {
+    var datatime =  $("#datetime");
+    datatime.jqxCalendar({width: 220, height: 220, selectionMode: 'range', culture: 'ch-CN'});
+    datatime.jqxCalendar({firstDayOfWeek: 1});
+    datatime.jqxCalendar('setMaxDate', new Date());
+    datatime.on('change', function (event) {
         console.log(event)
         selection = event.args.range;
         $("#startTime").val(selection.from.toLocaleDateString());
@@ -58,10 +59,10 @@ $(function () {
 });
 
 function dateShow() {
-    console.log(selection);
-    console.log($("#datetime"));
-    console.log($("#startTime").val());
-    console.log($("#endTime").val());
+    // console.log(selection);
+    // console.log($("#datetime"));
+    // console.log($("#startTime").val());
+    // console.log($("#endTime").val());
 
     if ($("#startTime").val() == "" || $("#endTime").val() == "") {
         return false;
