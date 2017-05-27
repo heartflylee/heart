@@ -28,7 +28,7 @@ gulp.task('clean', (callback)->
 )
 
 gulp.task('build', (callback) ->
-  runSequence(['concatHtml', 'copy'], ['sassCss', 'miniJs','miniImg'], callback)
+  runSequence(['concatHtml', 'copy'], ['sassCss', 'miniJs', 'miniImg'], callback)
 )
 
 #scss预编译设置css样式并合并到style中
@@ -38,12 +38,12 @@ gulp.task('sassCss', ->
     .pipe(plumber())
     .pipe(sass())
     .pipe(autoprefixer({
-      browsers: ['last 5 versions', 'Android >= 4.0', '> 1%', 'Firefox >= 20', 'Firefox ESR', 'ie 8', 'IOS 7'],
-      cascade: true,
-      remove: true
-      add: true
-      flexbox: true
-    }))
+    browsers: ['last 5 versions', 'Android >= 4.0', '> 1%', 'Firefox >= 20', 'Firefox ESR', 'ie 8', 'IOS 7'],
+    cascade: true,
+    remove: true
+    add: true
+    flexbox: true
+  }))
     .pipe(minify())
 #    .pipe(replace('}','}\n'))
     .pipe(sourcemaps.write('./map'))
@@ -68,14 +68,14 @@ gulp.task('miniJs', ->
 )
 
 #将图片压缩
-gulp.task('miniImg',->
+gulp.task('miniImg', ->
   gulp.src('./src/img/*.*')
     .pipe(plumber())
 #  .pipe(imagemin({
 #    progressive: true
 #  }))
     .pipe(plumber.stop())
-  .pipe(gulp.dest('./dist/img/'))
+    .pipe(gulp.dest('./dist/img/'))
 )
 
 #将html中模板合并到html中
