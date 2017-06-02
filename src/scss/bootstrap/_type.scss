@@ -180,7 +180,11 @@ mark,
 
 // Lists
 // -------------------------
-
+ul,li,dl,dd,dt{
+  list-style: none;
+  margin:0;
+  padding:0;
+}
 // Unordered and Ordered lists
 ul,
 ol {

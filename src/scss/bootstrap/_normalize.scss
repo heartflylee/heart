@@ -319,6 +319,11 @@ input::-moz-focus-inner {
 // the UA stylesheet.
 //
 
+img, input, select {
+  vertical-align: middle;
+}
+
+
 input {
   line-height: normal;
 }

@@ -60,6 +60,7 @@ $derection: tr tl br bl b t l r all reset;
 
 .jqx-popup {
   box-sizing: content-box;
+  box-shadow: 0 0 1px rgba(0,0,0,.5);
 }
 
 .jqx-position-reset {
@@ -402,7 +403,7 @@ $sorts: (sortasc:"65c", sortdesc:"65b");
 /*applied to the check box when the widget is disabled. Displays a disabled check icon.*/
 .jqx-checkbox-check-disabled {
   float: left;
-  background: transparent url("../img/check_disabled.png") center center no-repeat;
+  //background: transparent url("../img/check_disabled.png") center center no-repeat;
   padding: 0;
   border: none;
   outline: none;
@@ -422,7 +423,7 @@ $sorts: (sortasc:"65c", sortdesc:"65b");
 /*applied to the check box when its state is indeterminate and it is disabled.*/
 .jqx-checkbox-check-indeterminate-disabled {
   float: left;
-  background: transparent url("../img/check_indeterminate_disabled.png") center center no-repeat;
+  //background: transparent url("../img/check_indeterminate_disabled.png") center center no-repeat;
   padding: 0;
   border: none;
   outline: none;
@@ -583,6 +584,7 @@ of the horizontal scrollbar.*/
 .jqx-widget .jqx-grid-column-header,
 .jqx-widget .jqx-grid-group-cell {
   border-color: $borderColor;
+  border-width:0;
 }
 
 input[type=password].jqx-input,

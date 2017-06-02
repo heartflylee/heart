@@ -51,7 +51,7 @@ $(document).ready(function () {
         dataRow.lock = parseInt(Math.random() * 2);
         data.push(dataRow);
     }
-    /*制作假数据*/
+    /*制作假数据结束*/
     var source = {
         datatype: 'json',
         datafields: [
@@ -126,6 +126,7 @@ $(document).ready(function () {
         {
             text: '<i class="icon icon-table"></i>',
             datafield: 'header',
+            editable:false,
             width: 20,
             pinned: true,
             sortable: !1,
@@ -471,6 +472,7 @@ $(document).ready(function () {
         filterbutton.jqxButton();
         filterclearbutton.jqxButton();
         console.log(data);
+        var $table =$("#jqxtable");
         var dataSource =
             {
                 localdata: data,
@@ -483,9 +485,10 @@ $(document).ready(function () {
                 async: false,
                 uniqueDataFields: [datafield]
             });
-        var column = $("#jqxtable").jqxGrid('getcolumn', datafield);
+        var column = $table.jqxGrid('getcolumn', datafield);
         textInput.jqxInput({
             placeHolder: "请输入" + column.text,
+            // width: 115,
             popupZIndex: 9999999,
             displayMember: datafield,
             source: dataadapter
@@ -503,10 +506,11 @@ $(document).ready(function () {
             var filter1 = filtergroup.createfilter('stringfilter', filtervalue, filtercondition);
             filtergroup.addfilter(filter_or_operator, filter1);
             // add the filters.
-            $("#jqxtable").jqxGrid('addfilter', datafield, filtergroup);
+
+            $table.jqxGrid('addfilter', datafield, filtergroup);
             // apply the filters.
-            $("#jqxtable").jqxGrid('applyfilters');
-            $("#jqxtable").jqxGrid('closemenu');
+            $table.jqxGrid('applyfilters');
+            $table.jqxGrid('closemenu');
         });
         filterbutton.keydown(function (event) {
             if (event.keyCode === 13) {
@@ -514,10 +518,10 @@ $(document).ready(function () {
             }
         });
         filterclearbutton.click(function () {
-            $("#jqxtable").jqxGrid('removefilter', datafield);
+            $table.jqxGrid('removefilter', datafield);
             // apply the filters.
-            $("#jqxtable").jqxGrid('applyfilters');
-            $("#jqxtable").jqxGrid('closemenu');
+            $table.jqxGrid('applyfilters');
+            $table.jqxGrid('closemenu');
         });
         filterclearbutton.keydown(function (event) {
             if (event.keyCode === 13) {
@@ -679,8 +683,8 @@ $(function () {
         {label: '备用4', value: 'spare4'},
         {label: '备用5', value: 'spare5'}
     ];
-    $("#list-left").jqxListBox({width: 200, height: 335, source: leftsource});
-    $("#list-right").jqxListBox({width: 200, height: 335, source: rightsource});
+    $("#list-left").jqxListBox({width: 200, height: 335,scrollBarSize: 7,  source: leftsource});
+    $("#list-right").jqxListBox({width: 200, height: 335,scrollBarSize: 7, source: rightsource});
 });
 
 //自定义表头的位置和显示
@@ -695,20 +699,22 @@ function listMove(directionIndex) {
         box = direction[directionIndex];
         obox = opposing[directionIndex];
     }
-    var item = $("#list-" + box).jqxListBox('getSelectedItems');
+    var $box = $("#list-" + box);
+    var $obox = $("#list-" + obox);
+    var item = $box.jqxListBox('getSelectedItems');
     var Addindex;
     if (item.length > 0 && item[0] != undefined) {
-        var removeIndex = $("#list-" + box).jqxListBox('getSelectedIndex');
+        var removeIndex = $box.jqxListBox('getSelectedIndex');
         if (directionIndex == 2) {
             Addindex = removeIndex - 1;
         } else if (directionIndex == 3) {
             Addindex = removeIndex + 1;
         } else {
-            Addindex = $("#list-" + obox).jqxListBox('getSelectedIndex');
+            Addindex = $box.jqxListBox('getSelectedIndex');
         }
-        $("#list-" + box).jqxListBox('removeAt', removeIndex);
-        $("#list-" + obox).jqxListBox('insertAt', {label: item[0].label, value: item[0].value}, Addindex);
-        $("#list-" + obox).jqxListBox('selectItem', item[0].value);
+        $box.jqxListBox('removeAt', removeIndex);
+        $obox.jqxListBox('insertAt', {label: item[0].label, value: item[0].value}, Addindex);
+        $obox.jqxListBox('selectItem', item[0].value);
     }
 }
 
