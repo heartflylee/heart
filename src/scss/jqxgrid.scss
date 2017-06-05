@@ -150,8 +150,7 @@ $column: (sortascbutton:"asc", sortdescbutton:"desc"); //, filterbutton:"635");
 //    line-height: 1.5;
 //  }
 //}
-
-$sorts: (sortasc:"65c", sortdesc:"65b");
+$sorts: (sortasc:"65c", sortdesc:"65b",sortremove:"642");
 @each $sort, $sorticon in $sorts {
   .jqx-grid-#{$sort}-icon {
     //background-image: url("../img/#{$sort}.png");
@@ -162,17 +161,25 @@ $sorts: (sortasc:"65c", sortdesc:"65b");
     //    content: "\e635";
     //}
     //width: 13px;
-    //height: 13px;
     //float: left;
     display: inline-block;
+    position:relative;
+    width:20px;
+    height: 11px;
     line-height: 0;
+    font-size: 0;
     margin-left: 4px;
     margin-right: 4px;
     @include jqx-icon;
     &:after {
+      //display:inline-block;
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform: translate3d(-50%,-50%,0);
       content: "\e#{$sorticon}";
       font-size: 20px;
-      line-height: 1.5;
+      line-height: 1;
     }
   }
 }
@@ -1764,6 +1771,7 @@ div[role="row"] .jqx-grid-cell-pinned:nth-child(3) {
 .jqx-menu-item-top {
   line-height: 2;
 }
+
 
 //自定义筛选的文本框下拉可选文字
 .jqx-menu-item {
