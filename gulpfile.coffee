@@ -62,7 +62,7 @@ gulp.task('miniJs', ->
 
   gulp.src(['./src/js/bootstrap.js', './src/js/script.js'])
     .pipe(plumber())
-#    .pipe(uglify())
+    .pipe(uglify())
     .pipe(plumber.stop())
     .pipe(gulp.dest('./dist/js/'))
 )
@@ -111,12 +111,12 @@ gulp.task('concatHtml', ->
 gulp.task('copy', ->
   gulp.src('./src/js/*.js')
     .pipe(plumber())
-#    .pipe(uglify())
+    .pipe(uglify())
     .pipe(plumber.stop())
     .pipe(gulp.dest('./dist/js/'))
   gulp.src('./src/js/jqx/*.js')
     .pipe(plumber())
-#    .pipe(uglify())
+    .pipe(uglify())
     .pipe(plumber.stop())
     .pipe(gulp.dest('./dist/js/jqx/'))
   gulp.src('./src/fonts/*.*')

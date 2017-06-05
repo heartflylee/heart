@@ -5,7 +5,6 @@
     <title>云客后台-客户</title>
     <!--公共-->
     @@include("../component/common.html",{"style":"normal"})
-
     <!--表格-->
     <script type="text/javascript" src="js/jqx/jqxcore.js"></script>
     <script type="text/javascript" src="js/jqx/jqxdata.js"></script>
@@ -23,11 +22,10 @@
     <script type="text/javascript" src="js/jqx/jqxcheckbox.js"></script>
     <script type="text/javascript" src="js/jqx/jqxlistbox.js"></script>
     <script type="text/javascript" src="js/jqx/jqxdropdownlist.js"></script>
-
 </head>
 <body>
 <!--左侧菜单-->
-@@include('../component/aside/aside.html',{"menu":"menu2"})
+@@include('../component/aside/aside.html',{"menu":"customer"})
 <section class="b-main b-height">
     <!--header-->
     @@include('../component/head/head.html',{})
@@ -35,19 +33,14 @@
         @@include('../component/customer/customer.html')
     </div>
 </section>
-
 <!--客户详情-->
 @@include('../component/customer/detail.html')
-
 <!--新增客户-->
 @@include('../component/layer/layer.html',{"layer":"customer","layerTitle":"新建客户","layerFrame":"../customer/addcustomer.html","submit":"true","submitBtn":"customAdd()"})
-
 <!-- 自定义表头 -->
 @@include('../component/layer/layer.html',{"layer":"customHead","layerTitle":"编辑显示字段","layerFrame":"../customer/cusomHead.html","submit":"true","submitBtn":"customSubmit()"})
-
 <!--调用企信获得的企业信息-->
 @@include('../component/layer/layer.html',{"layer":"business","layerTitle":"工商信息","layerFrame":"../qixin/qixin.html","submit":"false","submitBtn":""})
-
 <script src="js/scripts.js"></script>
 <script src="js/customer.js"></script>
 </body>
