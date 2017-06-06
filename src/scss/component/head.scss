@@ -48,6 +48,9 @@ $h-p-t: 10px;
   font-size: 18px;
   font-weight: bold;
 }
+.h-company{
+  font-weight: bold;
+}
 
 .h-search {
   float: left;
@@ -79,6 +82,7 @@ $h-p-t: 10px;
   font-family: "iconfont";
   font-size: 32px;
   color: #d3d3d3;
+  line-height: 1;
   &:hover {
     color: #50d2c2;
   }
