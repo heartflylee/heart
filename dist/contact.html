@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>云客后台-联系人</title>
     <!--公共-->
-    <!--<link rel="stylesheet" href="css/reset.css">-->
+    <link type="image/x-icon" href="img/favicon.ico" rel="icon">
+
+<!--<link rel="stylesheet" href="css/reset.css">-->
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/beAlert.css">
 
@@ -22,7 +24,6 @@
 <script type="text/javascript" src="js/respond.min.js"></script>
 <script type="text/javascript" src="js/placeholder.js"></script>
 <![endif]-->
-
     <!--表格-->
     <script type="text/javascript" src="js/jqx/jqxcore.js"></script>
     <script type="text/javascript" src="js/jqx/jqxdata.js"></script>
@@ -31,19 +32,15 @@
     <script type="text/javascript" src="js/jqx/jqxscrollbar.js"></script>
     <script type="text/javascript" src="js/jqx/jqxmenu.js"></script>
     <script type="text/javascript" src="js/jqx/jqxgrid.js"></script>
-    <!--<script type="text/javascript" src="js/jqx/jqxgrid1.js"></script>-->
     <script type="text/javascript" src="js/jqx/jqxgrid.sort.js"></script>
     <script type="text/javascript" src="js/jqx/jqxgrid.filter.js"></script>
     <script type="text/javascript" src="js/jqx/jqxgrid.selection.js"></script>
     <script type="text/javascript" src="js/jqx/jqxgrid.columnsresize.js"></script>
     <script type="text/javascript" src="js/jqx/jqxgrid.edit.js"></script>
     <script type="text/javascript" src="js/jqx/jqxgrid.pager.js"></script>
-    <script type="text/javascript" src="js/jqx/jqxpanel.js"></script>
     <script type="text/javascript" src="js/jqx/jqxcheckbox.js"></script>
     <script type="text/javascript" src="js/jqx/jqxlistbox.js"></script>
     <script type="text/javascript" src="js/jqx/jqxdropdownlist.js"></script>
-    <script type="text/javascript" src="js/jqx/jqxcalendar.js"></script>
-    <script type="text/javascript" src="js/jqx/jqxdatetimeinput.js"></script>
 </head>
 <body>
 <!--左侧菜单-->
@@ -261,12 +258,10 @@
 </div>
 <div class="table-warp">
     <div class="jqxtable" id="jqxtable"></div>
-    <div id="events"></div>
 </div>
 
     </div>
 </section>
-
 <!--客户详情-->
 <div class="modal fade layer-detail-warp" data-backdrop="false" id="detail">
     <div class="layer-bg" data-dismiss="modal" aria-hidden="true"></div>
@@ -435,7 +430,6 @@
                                         </ul>
                                         <ul class="table-row">
     <li class="table-li table-li1">
-        <!--<input class="checkbox" type="checkbox" />-->
         <div class="checkbox">
             <label><input type="checkbox"><i></i></label>
         </div>
@@ -462,7 +456,6 @@
 </ul>
 <ul class="table-row">
     <li class="table-li table-li1">
-        <!--<input class="checkbox" type="checkbox" />-->
         <div class="checkbox">
             <label><input type="checkbox"><i></i></label>
         </div>
@@ -489,7 +482,6 @@
 </ul>
 <ul class="table-row">
     <li class="table-li table-li1">
-        <!--<input class="checkbox" type="checkbox" />-->
         <div class="checkbox">
             <label><input type="checkbox"><i></i></label>
         </div>
@@ -516,7 +508,6 @@
 </ul>
 <ul class="table-row">
     <li class="table-li table-li1">
-        <!--<input class="checkbox" type="checkbox" />-->
         <div class="checkbox">
             <label><input type="checkbox"><i></i></label>
         </div>
@@ -783,90 +774,102 @@
                                     基本信息
                                 </div>
                                 <div class="message-li">
+    <div class="icon edit-icon"></div>
     <div class="message-name">
         公司名称
     </div>
     <div class="message-main">
-        <input type="text" value="北京联云天下科技有限公司"/>
+        <input type="text" readonly="readonly" value="北京联云天下科技有限公司"/>
     </div>
 </div>
 <div class="message-li">
+    <div class="icon edit-icon"></div>
     <div class="message-name">
         客户负责人
     </div>
     <div class="message-main">
-        <input type="text" value="刘宇"/>
+        <input type="text" readonly="readonly" value="刘宇"/>
     </div>
 </div>
 <div class="message-li">
+    <div class="icon edit-icon"></div>
     <div class="message-name">
         销售进度
     </div>
     <div class="message-main">
-        <input type="text" value="初步沟通"/>
+        <input type="text" readonly="readonly" value="初步沟通"/>
     </div>
 </div>
 <div class="message-li">
+    <div class="icon edit-icon"></div>
     <div class="message-name">
         所属行业
     </div>
     <div class="message-main">
-        <input type="text" value="IT-互联网"/>
+        <input type="text" readonly="readonly" value="IT-互联网"/>
     </div>
 </div>
 <div class="message-li">
+    <div class="icon edit-icon"></div>
     <div class="message-name">
         注册资金
     </div>
     <div class="message-main">
-        <input type="text" value="--"/>
+        <input type="text" readonly="readonly" value="&#45;&#45;"/>
     </div>
 </div>
 <div class="message-li">
+    <div class="icon edit-icon"></div>
     <div class="message-name">
         公司类型
     </div>
     <div class="message-main">
-        <input type="text" value="有限责任公司（自然人投资或控股）"/>
+        <input type="text" readonly="readonly" value="有限责任公司（自然人投资或控股）"/>
     </div>
 </div>
+
                             </div>
                             <div class="message-box">
                                 <div class="message-t">
                                     联系信息
                                 </div>
                                 <div class="message-li">
+    <div class="icon edit-icon"></div>
     <div class="message-name">
         电话号码
     </div>
     <div class="message-main">
-        <input type="text" value="010-8888 8888"/>
+        <input type="text" readonly="readonly" value="010-8888 8888"/>
     </div>
 </div>
 <div class="message-li">
+    <div class="icon edit-icon"></div>
     <div class="message-name">
         公司地址
     </div>
     <div class="message-main">
-        <input type="text" value="点击填写"/>
+        <input type="text" readonly="readonly" value="点击填写"/>
     </div>
 </div>
 <div class="message-li">
+    <div class="icon edit-icon"></div>
     <div class="message-name">
         公司地址
     </div>
     <div class="message-main">
-        <input type="text" value="北京市朝阳区建外soho西区12号楼2704室"/>
+        <input type="text" readonly="readonly" value="北京市朝阳区建外soho西区12号楼2704室"/>
     </div>
 </div>
 <div class="message-li">
+    <div class="icon edit-icon"></div>
     <div class="message-name">
         邮政编码
     </div>
     <div class="message-main">
-        <input type="text" value="点击填写"/>
+        <input type="text" readonly="readonly" value="点击填写"/>
     </div>
 </div>
+
                             </div>
                         </div>
                     </div>
@@ -903,10 +906,10 @@
         <div class="talk-time">
             通话时长：1’ 11”<label class="video-box"><i class="icon video"></i> <i class="icon download"></i></label>
         </div>
-        <div class="">
+        <div class="line-block">
             沟通结果：有意向-索要线索
         </div>
-        <div class="">
+        <div class="line-block">
             电话备注：还行
         </div>
         
@@ -924,10 +927,10 @@
             <label class="color color-big">刘宇</label> 给
             <label class="color">白又亮</label> 发送挂机短信
         </div>
-        <div>
+        <div class="line-block">
             短信模板：第一季度拉新短信模板
         </div>
-        <div>
+        <div class="line-block">
             短信状态：<label class="color">打开链接</label>
         </div>
         
@@ -1006,7 +1009,6 @@
     </div>
 </div>
 
-
 <!--新增客户-->
 <div class="modal fade" data-backdrop="false" id="customer">
     <div class="layer-bg" data-dismiss="modal" aria-hidden="true"></div>
@@ -1079,6 +1081,7 @@
         
     </div>
 </div>
+
 </div>
 
             </div>
@@ -1091,7 +1094,6 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
-
 <!-- 自定义表头 -->
 <div class="modal fade" data-backdrop="false" id="customHead">
     <div class="layer-bg" data-dismiss="modal" aria-hidden="true"></div>
@@ -1134,7 +1136,6 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
-
 <!--调用企信获得的企业信息-->
 <div class="modal fade" data-backdrop="false" id="business">
     <div class="layer-bg" data-dismiss="modal" aria-hidden="true"></div>
@@ -1219,7 +1220,6 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
-
 <script src="js/scripts.js"></script>
 <script src="js/customer.js"></script>
 </body>

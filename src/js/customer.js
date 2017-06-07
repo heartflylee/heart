@@ -126,11 +126,11 @@ $(document).ready(function () {
         {
             text: '<i class="icon icon-table"></i>',
             datafield: 'header',
-            editable:false,
+            editable: false,
             width: 20,
             pinned: true,
             sortable: !1,
-            filterable: !1,
+            filterable: !1
         },
         {
             text: '客户名称',
@@ -456,7 +456,7 @@ $(document).ready(function () {
                 // console.log(rowData)
                 return '<i class="icon v-icon download"   data-id="' + rowData.cusid + '"></i>';
             }
-        },
+        }
     ];
 
     //设置筛选下拉内容的输入框
@@ -472,11 +472,11 @@ $(document).ready(function () {
         filterbutton.jqxButton();
         filterclearbutton.jqxButton();
         console.log(data);
-        var $table =$("#jqxtable");
+        var $table = $("#jqxtable");
         var dataSource =
             {
-                localdata: data,
-            }
+                localdata: data
+            };
         var dataadapter = new $.jqx.dataAdapter(dataSource,
             {
                 autoBind: false,
@@ -593,7 +593,6 @@ $(document).ready(function () {
     });
 
 
-
 });
 
 //表格顶部设置隐藏
@@ -683,8 +682,8 @@ $(function () {
         {label: '备用4', value: 'spare4'},
         {label: '备用5', value: 'spare5'}
     ];
-    $("#list-left").jqxListBox({width: 200, height: 335,scrollBarSize: 7,  source: leftsource});
-    $("#list-right").jqxListBox({width: 200, height: 335,scrollBarSize: 7, source: rightsource});
+    $("#list-left").jqxListBox({width: 200, height: 335, scrollBarSize: 7, source: leftsource});
+    $("#list-right").jqxListBox({width: 200, height: 335, scrollBarSize: 7, source: rightsource});
 });
 
 //自定义表头的位置和显示
@@ -737,11 +736,11 @@ function customSubmit() {
 
 
 //添加用户提交
-function customAdd(){
-    alert("","添加成功",function(){
+function customAdd() {
+    alert("", "添加成功", function () {
         //新增客户弹框隐藏
         $("#customer").modal("hide");
-    },{type:"success"});
+    }, {type: "success"});
 }
 
 //客户详情切换

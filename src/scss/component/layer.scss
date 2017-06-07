@@ -17,7 +17,7 @@
 }
 
 .layer-bg {
-  position: absolute;
+  position: fixed;
   z-index: 0;
   @extend %layer-bg;
 }

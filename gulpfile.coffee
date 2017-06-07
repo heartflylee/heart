@@ -31,6 +31,10 @@ gulp.task('build', (callback) ->
   runSequence(['concatHtml', 'copy'], ['sassCss', 'miniJs', 'miniImg'], callback)
 )
 
+gulp.task('reserve', ->
+  runSequence(['concatHtml','sassCss','miniJs'])
+)
+
 #scss预编译设置css样式并合并到style中
 gulp.task('sassCss', ->
   gulp.src('./src/scss/*.scss')
@@ -53,18 +57,20 @@ gulp.task('sassCss', ->
 
 #将js合并到all.js中
 gulp.task('miniJs', ->
-  gulp.src('./src/component/**/**/*.js')
+#  gulp.src('./src/component/**/**/*.js')
+#    .pipe(plumber())
+#    .pipe(concat('all.js', {newLine: ';\n'}))
+#    .pipe(uglify())
+#    .pipe(plumber.stop())
+#    .pipe(gulp.dest('./dist/js/'))
+
+  gulp.src('./src/js/*.js')
     .pipe(plumber())
-    .pipe(concat('all.js', {newLine: ';\n'}))
     .pipe(uglify())
     .pipe(plumber.stop())
     .pipe(gulp.dest('./dist/js/'))
 
-  gulp.src(['./src/js/bootstrap.js', './src/js/script.js'])
-    .pipe(plumber())
-#    .pipe(uglify())
-    .pipe(plumber.stop())
-    .pipe(gulp.dest('./dist/js/'))
+
 )
 
 #将图片压缩
@@ -109,14 +115,16 @@ gulp.task('concatHtml', ->
 
 #复制图片，公共css以及js
 gulp.task('copy', ->
-  gulp.src('./src/js/*.js')
+
+  gulp.src(['./src/js/bootstrap.js', './src/js/script.js'])
     .pipe(plumber())
-#    .pipe(uglify())
+    .pipe(uglify())
     .pipe(plumber.stop())
     .pipe(gulp.dest('./dist/js/'))
+
   gulp.src('./src/js/jqx/*.js')
     .pipe(plumber())
-#    .pipe(uglify())
+    .pipe(uglify())
     .pipe(plumber.stop())
     .pipe(gulp.dest('./dist/js/jqx/'))
   gulp.src('./src/fonts/*.*')
@@ -139,7 +147,8 @@ gulp.task('watch', ->
 )
 
 gulp.task('reload', (callback)->
-  runSequence(['build'], ['reload-browser'], callback)
+#  runSequence(['build'], ['reload-browser'], callback)
+  runSequence(['reserve'],['reload-browser'],callback)
 )
 
 gulp.task('reload-browser', ->
