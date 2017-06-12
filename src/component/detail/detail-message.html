@@ -1,12 +1,14 @@
-<div class="message-li" data-toggle="MessageEditor" data-type="@@type" data-value="@@value" >
+<div class="message-li" data-toggle="MessageEditor"  data-target=".message-li"  data-backdrop="true">
     <div class="icon edit-icon"></div>
     <div class="message-name">
         @@name
     </div>
-    <div class="message-main">
+    <div class="message-main" >
         <!--<input type="text" placeholder="">-->
-        <div class="message-text" >
-            <span>@@value</span>
+        <div class="message-text" data-value="@@value" data-type="@@type" >
+            <!--<div class="message-block">-->
+                @@value
+            <!--</div>-->
         </div>
     </div>
 </div>

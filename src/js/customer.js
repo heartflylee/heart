@@ -773,31 +773,37 @@ function detail(obj) {
 
 
 
-//
-// $(function () {
-//     $(".message-li").click(function (e) {
-//
-//         //$(this).find("input").removeAttr("readonly").focus();
-//         // MessageEditor.show($(this).find(".message-text").data().value, function () {
-//         // }, {})
-//
-//         var options = {
-//             callback:changed()
-//         };
-//
-//         options = $.extend(options,$(this).data());
-//         console.log(options);
-//
-//        $(this).MessageEditor(options);
-//
-//
-//        // MessageEditor($(this));
-//     });
-//
-// });
-//
-// function changed(obj){
-//     console.log(obj);
-// }
+//客户详情修改
+$(function () {
+    $(".layer-detail-warp .modal-dialog").click(function(e){
+        if ($(e.target).isChildAndSelfOf(".message-li")) {
+            $(".editor[data-toggle='MessageEditor']").each(function () {
+                if (!$(e.target).isChildAndSelfOf(this)) {
+                    $(this).MessageEditor( {editor: false, callback: changed(this)}, this)
+                }
+            })
+        }
+        else {
+            $(".editor[data-toggle='MessageEditor']").each(function () {
+                $(this).MessageEditor({editor: false, callback: changed(this)}, this)
+            })
+        }
+    })
+
+    $(".message-li").click(function(e){
+        if ($(e.target).isChildAndSelfOf(".message-li")) {
+            var $this = $(this)
+            var $target = $this
+            var option = $target.data('bs.MessageEditor') ? 'toggle' : $.extend($target.data(), $this.data())
+            $(this).MessageEditor({editor: true}, this)
+        }
+    })
+
+});
+
+function changed(obj){
+    console.log(obj);
+    console.log($(obj).find(".message-text").data())
+}
 
 

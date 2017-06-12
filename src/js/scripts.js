@@ -66,6 +66,7 @@
     });
 })(jQuery);
 
+
 function Hsearch() {
     console.log("头部搜索");
     location.href = "customer.html";

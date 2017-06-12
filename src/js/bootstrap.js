@@ -1,3 +1,14 @@
+
+//判断:当前元素是否是被筛选元素的子元素
+jQuery.fn.isChildOf = function(b){
+    return (this.parents(b).length > 0);
+};
+//判断:当前元素是否是被筛选元素的子元素或者本身
+jQuery.fn.isChildAndSelfOf = function(b){
+    return (this.closest(b).length > 0);
+};
+
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
