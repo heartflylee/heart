@@ -1,1 +1,76 @@
-"function"==typeof $&&$(function(){var t={defaultConfig:{width:320,height:170,timer:0,type:"warning",showConfirmButton:!0,showCancelButton:!1,confirmButtonText:"确认",cancelButtonText:"取消"},html:'<div class="BeAlert_box"><div class="BeAlert_image"></div><div class="BeAlert_title"></div><div class="BeAlert_message"></div><div class="BeAlert_button"><button class="BeAlert_cancel"></button><button class="BeAlert_confirm"></button></div></div>',overlay:'<div class="BeAlert_overlay"></div>',open:function(t,e,n,o){var i={},l=this;$.extend(i,l.defaultConfig,o),$("body").append(l.html).append(l.overlay);var c=$(".BeAlert_box");c.css({width:i.width+"px","min-height":i.height+"px","margin-left":-i.width/2+"px"}),$(".BeAlert_image").addClass(i.type),t&&$(".BeAlert_title").html(t).show(),e&&$(".BeAlert_message").html(e).show();var r=$(".BeAlert_confirm"),a=$(".BeAlert_cancel");i.showConfirmButton&&r.text(i.confirmButtonText).show(),i.showCancelButton&&a.text(i.cancelButtonText).show(),$(".BeAlert_overlay").unbind("click").bind("click",function(){l.close()}),r.unbind("click").bind("click",function(){l.close(),"function"==typeof n&&n(!0)}),a.unbind("click").bind("click",function(){l.close(),"function"==typeof n&&n(!1)});var s=c.height();c.css({"margin-top":-(Math.max(s,i.height)/2+100)+"px"})},close:function(){$(".BeAlert_overlay,.BeAlert_box").remove()}};window.alert=function(e,n,o,i){t.open(e,n,o,i)};var e=window.confirm;window.confirm=function(n,o,i,l){if(l=$.extend({type:"question",showCancelButton:!0},l),"function"!=typeof i)return e(n);t.open(n,o,i,l)}});
+/**
+ * Created by Luker on 2016/10/31.
+ */
+if (typeof $ === 'function') {
+    $(function () {
+        var BeAlert = {
+            defaultConfig: {
+                width: 320,
+                height: 170,
+                timer: 0,
+                type: 'warning',
+                showConfirmButton: true,
+                showCancelButton: false,
+                confirmButtonText: '确认',
+                cancelButtonText: '取消'
+            },
+            html: '<div class="BeAlert_box">' +
+            '<div class="BeAlert_image"></div>' +
+            '<div class="BeAlert_title"></div>' +
+            '<div class="BeAlert_message"></div>' +
+            '<div class="BeAlert_button">' +
+            '<button class="BeAlert_cancel"></button>' +
+            '<button class="BeAlert_confirm"></button>' +
+            '</div>' +
+            '</div>',
+            overlay: '<div class="BeAlert_overlay"></div>',
+            open: function (title, message, callback, o) {
+                var opts = {}, that = this;
+                $.extend(opts, that.defaultConfig, o);
+                $('body').append(that.html).append(that.overlay);
+                var box = $('.BeAlert_box');
+                box.css({
+                    'width': opts.width + 'px',
+                    'min-height': opts.height + 'px',
+                    'margin-left': -(opts.width / 2) + 'px'
+                });
+                $('.BeAlert_image').addClass(opts.type);
+                title && $('.BeAlert_title').html(title).show(),
+                message && $('.BeAlert_message').html(message).show();
+                var confirmBtn = $('.BeAlert_confirm'), cancelBtn = $('.BeAlert_cancel');
+                opts.showConfirmButton && confirmBtn.text(opts.confirmButtonText).show(),
+                opts.showCancelButton && cancelBtn.text(opts.cancelButtonText).show();
+                $('.BeAlert_overlay').unbind('click').bind('click', function () {
+                    that.close();
+                });
+                confirmBtn.unbind('click').bind('click', function () {
+                    that.close();
+                    typeof callback === 'function' && callback(true);
+                });
+                cancelBtn.unbind('click').bind('click', function () {
+                    that.close();
+                    typeof callback === 'function' && callback(false);
+                });
+                var h = box.height();
+                box.css({
+                    'margin-top': -(Math.max(h, opts.height) / 2 + 100) + 'px'
+                });
+            },
+            close: function () {
+                $(".BeAlert_overlay,.BeAlert_box").remove();
+            }
+        };
+        window.alert = function (title, message, callback, opts) {
+            BeAlert.open(title, message, callback, opts);
+        };
+        var _confirm = window.confirm;
+        window.confirm = function (title, message, callback, opts) {
+            opts = $.extend({type: 'question', showCancelButton: true}, opts);
+            if (typeof callback === 'function') {
+                BeAlert.open(title, message, callback, opts);
+            } else {
+                return _confirm(title);
+            }
+        }
+    });
+}
