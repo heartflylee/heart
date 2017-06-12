@@ -533,9 +533,17 @@ a.line-href {
   }
   input {
     width: 85%;
-    min-width: 260px;
-    border: none;
-    background: none;
+    //min-width: 260px;
+    border: 1px solid #999;
+    //background: none;
+    //border-color:#999;
+    background-color: #fff;
+    color: #383838;
+    //&:focus{
+    //  border-color:#999;
+    //  background-color: #fff;
+    //  color: #383838;
+    //}
   }
 }
 
@@ -552,6 +560,17 @@ a.line-href {
   }
   .message-li:hover &{
     display: block;
+  }
+}
+
+.message-text{
+  padding-right:20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  span{
+    display: block;
+    border:1px solid transparent;
   }
 }
 
@@ -573,6 +592,7 @@ a.line-href {
     border-top: none;
   }
 }
+
 
 .member-head {
   position: absolute;

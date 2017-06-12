@@ -16,6 +16,7 @@ sourcemaps = require("gulp-sourcemaps")
 replace = require("gulp-replace")
 rename = require("gulp-rename")
 imagemin = require('gulp-imagemin')
+changed = require('gulp-changed')
 
 
 # 构建任务部分
@@ -32,12 +33,13 @@ gulp.task('build', (callback) ->
 )
 
 gulp.task('reserve', ->
-  runSequence(['concatHtml','sassCss','miniJs'])
+  runSequence(['concatHtml'],['sassCss'],['miniJs'])
 )
 
 #scss预编译设置css样式并合并到style中
 gulp.task('sassCss', ->
   gulp.src('./src/scss/*.scss')
+    .pipe(changed('./dist/css', {hasChanged: changed.compareSha1Digest}))
     .pipe(sourcemaps.init())
     .pipe(plumber())
     .pipe(sass())
@@ -65,8 +67,9 @@ gulp.task('miniJs', ->
 #    .pipe(gulp.dest('./dist/js/'))
 
   gulp.src('./src/js/*.js')
+    .pipe(changed('./dist/js', {hasChanged: changed.compareSha1Digest}))
     .pipe(plumber())
-    .pipe(uglify())
+#    .pipe(uglify())
     .pipe(plumber.stop())
     .pipe(gulp.dest('./dist/js/'))
 
@@ -76,6 +79,7 @@ gulp.task('miniJs', ->
 #将图片压缩
 gulp.task('miniImg', ->
   gulp.src('./src/img/*.*')
+    .pipe(changed('./dist/img', {hasChanged: changed.compareSha1Digest}))
     .pipe(plumber())
 #  .pipe(imagemin({
 #    progressive: true
@@ -87,6 +91,7 @@ gulp.task('miniImg', ->
 #将html中模板合并到html中
 gulp.task('concatHtml', ->
   gulp.src(["./src/page/*.html"])
+    .pipe(changed('./dist/', {hasChanged: changed.compareSha1Digest}))
     .pipe(plumber())
     .pipe(fileinclude({
     prefix: '@@',
@@ -117,17 +122,20 @@ gulp.task('concatHtml', ->
 gulp.task('copy', ->
 
   gulp.src(['./src/js/bootstrap.js', './src/js/script.js'])
+    .pipe(changed('./dist/js', {hasChanged: changed.compareSha1Digest}))
     .pipe(plumber())
     .pipe(uglify())
     .pipe(plumber.stop())
     .pipe(gulp.dest('./dist/js/'))
 
   gulp.src('./src/js/jqx/*.js')
+    .pipe(changed('./dist/js/jqx/', {hasChanged: changed.compareSha1Digest}))
     .pipe(plumber())
     .pipe(uglify())
     .pipe(plumber.stop())
     .pipe(gulp.dest('./dist/js/jqx/'))
   gulp.src('./src/fonts/*.*')
+    .pipe(changed('./dist/fonts', {hasChanged: changed.compareSha1Digest}))
     .pipe(gulp.dest('./dist/fonts/'))
 #  gulp.src('./src/img/*.*')
 #    .pipe(gulp.dest('./dist/img/'))
@@ -143,12 +151,17 @@ gulp.task('serve', ->
 )
 
 gulp.task('watch', ->
-  gulp.watch('./src/**/*.*', ['reload'])
+#  gulp.watch('./src/**/*.*', ['reload'])
+  gulp.watch('./src/js/*.js',['miniJs'])
+  gulp.watch('./src/scss/**/*.scss',['sassCss'])
+  gulp.watch(['./src/page/*.html','./src/component/**/*.html'],['concatHtml'])
+
+  runSequence(['reload-browser'])
 )
 
 gulp.task('reload', (callback)->
-#  runSequence(['build'], ['reload-browser'], callback)
-  runSequence(['reserve'],['reload-browser'],callback)
+  runSequence(['build'], ['reload-browser'], callback)
+#  runSequence(['reserve'],['reload-browser'],callback)
 )
 
 gulp.task('reload-browser', ->

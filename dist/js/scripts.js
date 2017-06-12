@@ -1,1 +1,73 @@
-function Hsearch(){return console.log("头部搜索"),location.href="customer.html",!1}!function(){"use strict";function e(){jQuery(".menu-list").each(function(){var e=jQuery(this);e.hasClass("nav-active")&&e.find("> ul").slideUp(300,function(){e.removeClass("nav-active")})})}jQuery(".menu-list > a").click(function(){var s=jQuery(this).parent(),t=s.find("> ul");return jQuery("body").hasClass("sidebar-collapsed")||(t.is(":visible")?t.slideUp(300,function(){s.removeClass("nav-active"),jQuery(".body-content").css({height:""})}):(e(),s.addClass("nav-active"),t.slideDown(300,function(){}))),!1}),jQuery(".toggle-btn").click(function(){var e=jQuery("body");e.hasClass("side-open")?e.removeClass("side-open"):e.addClass("side-open")}),$("[data-toggle='tooltip']").tooltip(),$(".select-show").click(function(e){var s=$(this).parent(".index-select");s.hasClass("active")?s.removeClass("active"):($(".index-select").removeClass("active"),s.addClass("active"),$(document).one("click",function(){s.removeClass("active")}),e.stopPropagation())}),$(".index-select").click(function(e){e.stopPropagation()})}(jQuery);
+// common scripts
+(function () {
+    "use strict";
+    //一级菜单点击事件
+    jQuery('.menu-list > a').click(function () {
+        var parent = jQuery(this).parent();
+        var sub = parent.find('> ul');
+        if (!jQuery('body').hasClass('sidebar-collapsed')) {
+            if (sub.is(':visible')) {
+                sub.slideUp(300, function () {
+                    parent.removeClass('nav-active');
+                    jQuery('.body-content').css({height: ''});
+                    // adjustMainContentHeight();
+                });
+            } else {
+                visibleSubMenuClose();
+                parent.addClass('nav-active');
+                sub.slideDown(300, function () {
+                    // adjustMainContentHeight()
+                });
+            }
+        }
+        return false;
+    });
+
+    function visibleSubMenuClose() {
+        jQuery('.menu-list').each(function () {
+            var t = jQuery(this);
+            if (t.hasClass('nav-active')) {
+                t.find('> ul').slideUp(300, function () {
+                    t.removeClass('nav-active');
+                });
+            }
+        });
+    }
+
+    // Toggle Menu
+    //改变菜单的样式
+    jQuery('.toggle-btn').click(function () {
+        var body = jQuery('body');
+        if (body.hasClass('side-open')) {
+            body.removeClass('side-open');
+        }
+        else {
+            body.addClass('side-open');
+        }
+    })
+
+    $("[data-toggle='tooltip']").tooltip();
+    //下拉
+    $(".select-show").click(function (event) {
+        var selectBox = $(this).parent(".index-select");
+        if (selectBox.hasClass("active")) {
+            selectBox.removeClass("active");
+        } else {
+            $(".index-select").removeClass("active");
+            selectBox.addClass("active");
+            $(document).one("click", function () {
+                selectBox.removeClass("active");
+            });
+            event.stopPropagation();
+        }
+    });
+    $(".index-select").click(function (event) {
+        event.stopPropagation();
+    });
+})(jQuery);
+
+function Hsearch() {
+    console.log("头部搜索");
+    location.href = "customer.html";
+    return false;
+}

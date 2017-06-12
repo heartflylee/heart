@@ -179,12 +179,12 @@
                                     基本信息
                                 </div>
                                 @@loop("../detail/detail-message.html",[
-                                {"name":"公司名称","value":"北京联云天下科技有限公司"},
-                                {"name":"客户负责人","value":"刘宇"},
-                                {"name":"销售进度","value":"初步沟通"},
-                                {"name":"所属行业","value":"IT-互联网"},
-                                {"name":"注册资金","value":"&#45;&#45;"},
-                                {"name":"公司类型","value":"有限责任公司（自然人投资或控股）"}
+                                {"id":"company","name":"公司名称","value":"北京联云天下科技有限公司","type":"input"},
+                                {"id":"userName","name":"客户负责人","value":"刘宇","type":"input"},
+                                {"id":"progress","name":"销售进度","value":"初步沟通","type":"select"},
+                                {"id":"comType","name":"所属行业","value":"IT-互联网","type":"input"},
+                                {"id":"registCapi","name":"注册资金","value":"&#45;&#45;","type":"input"},
+                                {"id":"comType","name":"公司类型","value":"有限责任公司（自然人投资或控股）","type":"input"}
                                 ])
                             </div>
                             <div class="message-box">
@@ -192,10 +192,10 @@
                                     联系信息
                                 </div>
                                 @@loop("../detail/detail-message.html",[
-                                {"name":"电话号码","value":"010-8888 8888"},
-                                {"name":"公司地址","value":"点击填写"},
-                                {"name":"公司地址","value":"北京市朝阳区建外soho西区12号楼2704室"},
-                                {"name":"邮政编码","value":"点击填写"}
+                                {"id":"cellphone","name":"电话号码","value":"010-8888 8888","type":"input"},
+                                {"id":"comAdress","name":"公司地址","value":"点击填写","type":"input"},
+                                {"id":"comAdress","name":"公司地址","value":"北京市朝阳区建外soho西区12号楼2704室","type":"input"},
+                                {"id":"company","name":"邮政编码","value":"点击填写","type":"input"}
                                 ])
                             </div>
                         </div>

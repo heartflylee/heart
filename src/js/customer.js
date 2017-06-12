@@ -770,3 +770,34 @@ function detail(obj) {
         $(obj).addClass("active");
     }
 }
+
+
+
+//
+// $(function () {
+//     $(".message-li").click(function (e) {
+//
+//         //$(this).find("input").removeAttr("readonly").focus();
+//         // MessageEditor.show($(this).find(".message-text").data().value, function () {
+//         // }, {})
+//
+//         var options = {
+//             callback:changed()
+//         };
+//
+//         options = $.extend(options,$(this).data());
+//         console.log(options);
+//
+//        $(this).MessageEditor(options);
+//
+//
+//        // MessageEditor($(this));
+//     });
+//
+// });
+//
+// function changed(obj){
+//     console.log(obj);
+// }
+
+
