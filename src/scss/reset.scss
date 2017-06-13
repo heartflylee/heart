@@ -6,6 +6,17 @@ html {
 body {
   margin: 0;
 }
+* {
+  margin: 0;
+  padding: 0;
+   box-sizing:border-box;
+  outline: none;
+}
+
+*:before,
+*:after {
+  box-sizing:border-box;
+}
 
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,

@@ -56,7 +56,7 @@
     return gulp.src('./src/scss/*.scss').pipe(changed('./dist/css', {
       hasChanged: changed.compareSha1Digest
     })).pipe(sourcemaps.init()).pipe(plumber()).pipe(sass()).pipe(autoprefixer({
-      browsers: ['last 5 versions', 'Android >= 4.0', '> 1%', 'Firefox >= 20', 'Firefox ESR', 'ie 8', 'IOS 7'],
+      browsers: ['last 8 versions', 'Android >= 4.0', '> 1%', 'Firefox >= 20', 'Firefox ESR', 'ie 8', 'IOS 7'],
       cascade: true,
       remove: true,
       add: true,

@@ -7,7 +7,7 @@
   left: 0;
   top: 0;
   width: $aside-w;
-  transition: width $asideOpenTime;
+  //transition: width $asideOpenTime linear 0s;
   background: #252834;
   color: #fff;
 }
@@ -30,17 +30,15 @@
   display: block;
   text-align: center;
   line-height: 60px;
-  //width: 120px;
-  //height: 23px;
+  //margin-right: 30px;
   //margin: ($header-h - 23)/2 0 0 30px;
-  //transition: display $asideOpenTime;
-  //background: url("../img/h-logo.png");
+  //transition: display $asideOpenTime linear 0s;
 }
 
 .menu-btn-box {
   position: absolute;
   top: 15px;
-  right: 26px;
+  right: 10px;
   cursor: pointer;
   //.side-open & {
   //  right: 19px;
@@ -91,9 +89,11 @@ a.nav-info {
   display: block;
   position: relative;
   padding: 15px 20px 15px 67px;
+  height:60px;
   //padding:15px 0;
   //text-align: center;
   line-height: 30px;
+white-space: nowrap;
   color: #fff;
   font-size: $asideFontsize;
   cursor: pointer;
@@ -239,7 +239,7 @@ $menuActive: "\e606" "\e608" "\e60a" "\e60c";
 //    left: $aside-s-w;
 //    width: 172px;
 //    background: #1e222b;
-//    transition: left $asideOpenTime;
+//    transition: left $asideOpenTime linear 0s;
 //  }
 //  .m-second {
 //    a {

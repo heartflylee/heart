@@ -5,7 +5,7 @@
     jQuery('.menu-list > a').click(function () {
         var parent = jQuery(this).parent();
         var sub = parent.find('> ul');
-        if (!jQuery('body').hasClass('sidebar-collapsed')) {
+        // if (!jQuery('body').hasClass('sidebar-collapsed')) {
             if (sub.is(':visible')) {
                 sub.slideUp(300, function () {
                     parent.removeClass('nav-active');
@@ -20,7 +20,7 @@
                     // adjustMainContentHeight()
                 });
             }
-        }
+        // }
         return false;
     });
 
@@ -53,9 +53,11 @@
     //     var body = jQuery('body');
     //     if (body.hasClass('side-open')) {
     //         body.removeClass('side-open');
+    //         jQuery('.menu-warp ul').attr('style', '');
     //     }
     //     else {
     //         body.addClass('side-open');
+    //         jQuery('.menu-warp li.active ul').css({display: 'block'});
     //     }
     // })
 
