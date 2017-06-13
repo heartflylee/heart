@@ -7,6 +7,7 @@
   left: 0;
   top: 0;
   width: $aside-w;
+  transition: width $asideOpenTime;
   background: #252834;
   color: #fff;
 }
@@ -25,10 +26,14 @@
 }
 
 .a-logo {
-  display: inline-block;
+  //display: inline-block;
+  display: block;
+  text-align: center;
+  line-height: 60px;
   //width: 120px;
   //height: 23px;
-  margin: ($header-h - 23)/2 0 0 30px;
+  //margin: ($header-h - 23)/2 0 0 30px;
+  //transition: display $asideOpenTime;
   //background: url("../img/h-logo.png");
 }
 
@@ -37,9 +42,9 @@
   top: 15px;
   right: 26px;
   cursor: pointer;
-  .side-open & {
-    right: 19px;
-  }
+  //.side-open & {
+  //  right: 19px;
+  //}
 }
 
 .menu-icon {
@@ -49,9 +54,9 @@
     display: inline-block;
     content: "\e64b";
     font-size: 27px;
-    .side-open & {
-      content: "\e63f";
-    }
+    //.side-open & {
+    //  content: "\e63f";
+    //}
   }
 }
 
@@ -85,19 +90,24 @@
 a.nav-info {
   display: block;
   position: relative;
-  padding: 15px 20px 15px 93px;
+  padding: 15px 20px 15px 67px;
+  //padding:15px 0;
+  //text-align: center;
   line-height: 30px;
   color: #fff;
-  font-size: 12px;
+  font-size: $asideFontsize;
   cursor: pointer;
   label {
     cursor: pointer;
   }
 }
+.m-second a{
+  font-size: 14px;
+}
 
 .m-icon {
   position: absolute;
-  left: 40px;
+  left: 25px;
   top: 21px;
   line-height: 0;
   text-align: center;
@@ -132,7 +142,7 @@ $menuActive: "\e606" "\e608" "\e60a" "\e60c";
 .icon-sign {
   position: absolute;
   top: ($menu-h - 24)/2;
-  right: 23px;
+  right: 15px;
   width: 24px;
   height: 24px;
   @include icon;
@@ -159,9 +169,9 @@ $menuActive: "\e606" "\e608" "\e60a" "\e60c";
   .nav-active & {
     display: block;
   }
-  .side-open &, .side-open .nav-active & {
-    display: none;
-  }
+  //.side-open &, .side-open .nav-active & {
+  //  display: none;
+  //}
 }
 
 .m-second {
@@ -169,7 +179,7 @@ $menuActive: "\e606" "\e608" "\e60a" "\e60c";
     display: inline-block;
     position: absolute;
     top: ($menu-h - 10)/2;
-    left: 45px;
+    left: 30px;
     height: 10px;
     width: 10px;
     border: 2px solid #fff;
@@ -185,60 +195,61 @@ $menuActive: "\e606" "\e608" "\e60a" "\e60c";
 
 }
 
-.side-open {
-  .b-aside {
-    width: $aside-s-w;
-  }
-  .menu-warp {
-    bottom: 0;
-    overflow-y: inherit;
-
-  }
-  .a-logo {
-    display: none;
-  }
-  .menu-btn-all {
-    display: block;
-  }
-  .menu-btn-defalut {
-    display: none;
-  }
-  .nav-info {
-    padding: 0;
-    height: 60px;
-    .icon {
-      left: 15px;
-    }
-    .icon-sign,
-    label {
-      display: none;
-    }
-
-  }
-  .m-nav {
-    .m-second-list {
-      display: none;
-    }
-    &:hover .m-second-list {
-      display: block;
-    }
-  }
-  .m-second-list {
-    position: absolute;
-    top: 0;
-    left: $aside-s-w;
-    width: 172px;
-    background: #1e222b;
-  }
-  .m-second {
-    a {
-      padding-left: 67px;
-    }
-    i {
-      left: 28px;
-    }
-  }
-}
+//.side-open {
+//  .b-aside {
+//    width: $aside-s-w;
+//  }
+//  .menu-warp {
+//    bottom: 0;
+//    overflow-y: inherit;
+//
+//  }
+//  .a-logo {
+//    display: none;
+//  }
+//  .menu-btn-all {
+//    display: block;
+//  }
+//  .menu-btn-defalut {
+//    display: none;
+//  }
+//  .nav-info {
+//    padding: 0;
+//    height: 60px;
+//    .icon {
+//      left: 15px;
+//    }
+//    .icon-sign,
+//    label {
+//      display: none;
+//    }
+//
+//  }
+//  .m-nav {
+//    .m-second-list {
+//      display: none;
+//    }
+//    &:hover .m-second-list {
+//      display: block;
+//    }
+//  }
+//  .m-second-list {
+//    position: absolute;
+//    top: 0;
+//    left: $aside-s-w;
+//    width: 172px;
+//    background: #1e222b;
+//    transition: left $asideOpenTime;
+//  }
+//  .m-second {
+//    a {
+//      padding-left: 67px;
+//    }
+//    i {
+//      left: 28px;
+//    }
+//  }
+//}
 
 .aside-footer {
   position: absolute;
@@ -249,7 +260,7 @@ $menuActive: "\e606" "\e608" "\e60a" "\e60c";
   text-align: center;
   color: #1c1f27;
   font-size: 18px;
-  .side-open & {
-    display: none;
-  }
+  //.side-open & {
+  //  display: none;
+  //}
 }

@@ -61,9 +61,16 @@
                     .appendTo(this.$text).focus();
             }
             else if (data.type == "select") {
+                var select = data.option.split(',');
+                var options="";
+                for(var i =0;i<select.length;i++){
+                    options+= data.value == select[i] ?"<option selected='selected'>":"<option>";
+                    options+=select[i];
+                    options+="</option>";
+                }
+
                 $(document.createElement(data.type))
-                    .addClass("selectpicker")
-                    .append("<option>123</option><option>123123132</option>")
+                    .append(options)
                     .appendTo(this.$text);
             }
 

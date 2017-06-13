@@ -9,7 +9,8 @@
             if (sub.is(':visible')) {
                 sub.slideUp(300, function () {
                     parent.removeClass('nav-active');
-                    jQuery('.body-content').css({height: ''});
+                    // jQuery('.body-content').css({height: ''});
+                    // jQuery('.b-main').css({height: ''});
                     // adjustMainContentHeight();
                 });
             } else {
@@ -33,18 +34,30 @@
             }
         });
     }
+    // function adjustMainContentHeight() {
+    //
+    //     // Adjust main content height
+    //     var docHeight = jQuery(document).height();
+    //     // if(docHeight > jQuery('.body-content').height())
+    //         // jQuery('.body-content').height(docHeight);
+    //     if(docHeight > jQuery('.b-main').height())
+    //         jQuery('.b-mian').height(docHeight);
+    // }
+
+
+
 
     // Toggle Menu
     //改变菜单的样式
-    jQuery('.toggle-btn').click(function () {
-        var body = jQuery('body');
-        if (body.hasClass('side-open')) {
-            body.removeClass('side-open');
-        }
-        else {
-            body.addClass('side-open');
-        }
-    })
+    // jQuery('.toggle-btn').click(function () {
+    //     var body = jQuery('body');
+    //     if (body.hasClass('side-open')) {
+    //         body.removeClass('side-open');
+    //     }
+    //     else {
+    //         body.addClass('side-open');
+    //     }
+    // })
 
     $("[data-toggle='tooltip']").tooltip();
     //下拉
